@@ -8,7 +8,7 @@
 [![Catalog: independent updates](https://img.shields.io/badge/catalog-independent_updates-64748b?style=flat-square)](#updates)
 
 This repository hosts Ompra's storefront metadata, native OMP marketplace, and
-installable packages. **Catalog 1.1.0 contains 22 cards: 16 remote MCP connectors
+installable packages. **Catalog 1.1.1 contains 22 cards: 16 remote MCP connectors
 and six Ompra-authored skills.** The catalog updates independently of desktop app
 releases; existing versions with remote catalog support can fetch this selection.
 
@@ -56,7 +56,26 @@ https://raw.githubusercontent.com/vallgrice/ompra-catalog/main/catalog.json
 | Source | Purpose |
 |---|---|
 | [Storefront catalog](https://raw.githubusercontent.com/vallgrice/ompra-catalog/main/catalog.json) | Names, descriptions, requirements, and example prompts shown in Ompra |
+| [Storefront presentation](presentation.json) | Thematic sections, their order, and supported service-logo identifiers |
 | [OMP marketplace](https://raw.githubusercontent.com/vallgrice/ompra-catalog/main/.omp-plugin/marketplace.json) | Package versions and immutable installation sources |
+
+### 🎨 Browse by topic
+
+The updated storefront groups all 22 cards into **Development**, **Knowledge and
+data**, **Projects and teams**, **Search and web**, **Business and analytics**,
+and **Coding skills**. Select a section heading to browse that category, or search
+across the catalog. Airtable is in **Knowledge and data**.
+
+Service logos appear in the catalog, plugin details, and installed sidebar. SVG
+assets are bundled with Ompra, so displaying them makes no requests to image
+providers. Skills use distinct colored icons. Both light and dark themes are
+supported.
+
+**The new layout and logos require the updated desktop build.** Older builds can
+still refresh all 22 cards through the unchanged V1 catalog format. Compatible
+builds also read `presentation.json` from this repository and retain its last
+working copy offline; future category names, ordering, and assignments can be
+updated here without replacing the app.
 
 **Requirements:** downloading packages from this repository needs Git and an
 internet connection. No separate GitHub account or token is required. The agent
@@ -189,6 +208,7 @@ Machine-readable tracking: [curation.json](curation.json).
 
 | File | What to edit |
 |---|---|
+| [presentation.json](presentation.json) | Thematic group names, ordering, card membership, and supported local logos |
 | [catalog.json](catalog.json) | Storefront names, descriptions, requirements, links, and example prompts |
 | [connectors.json](connectors.json) | Authored metadata for the 16 MCP connector cards; input to the index builder |
 | [.omp-plugin/marketplace.json](.omp-plugin/marketplace.json) | Published package versions and installation sources |
@@ -212,6 +232,13 @@ For description-only changes, edit `catalog.json`, increment the catalog
 version, update `updatedAt`, run validation, and commit and push the changes to
 `main`.
 
+For category changes, edit `presentation.json`: update group titles, ordering,
+and `pluginIds`, then increment its own `version`. Keep plugin IDs stable and
+assign each published card once. `brands` accepts supported, locally bundled
+logo identifiers only; arbitrary image URLs and executable content are rejected.
+Adding a new logo asset requires a new desktop build. Run `npm run check` before
+publishing; **Refresh catalog** fetches both metadata files in compatible builds.
+
 ### Package changes
 
 1. Edit the skill or MCP definition and increment `version` in `plugin.json` and `package.json`,
@@ -219,7 +246,7 @@ version, update `updatedAt`, run validation, and commit and push the changes to
 2. Commit the packages. The full commit SHA will identify the new package contents.
 3. For the MCP collection, update card metadata in `connectors.json`, then run
    `node scripts/publish-index.mjs <packageSHA> <catalogVersion>` with the full
-   SHA from step 2 and the next catalog version (this update uses `1.1.0`).
+   SHA from step 2 and the next catalog version (for example, `1.2.0`).
    The builder checks committed package contents and writes both indexes.
    For a skill update, change its marketplace version and `source.sha` manually;
    the `git-subdir` source points to `plugins/<name>`.

@@ -91,4 +91,38 @@ for (const card of catalog.plugins) {
   }
   assert.ok((await readFile(path.join(root, directory, 'LICENSE'), 'utf8')).includes('MIT License'));
 }
-console.log(`Validated catalog ${catalog.version}: ${names.size} cards, ${marketplace.plugins.length} immutable Ompra packages.`);
+const presentation = await json('presentation.json');
+assert.ok(Buffer.byteLength(JSON.stringify(presentation)) <= 64 * 1024, 'Presentation exceeds app size limit');
+assert.deepEqual(Object.keys(presentation).sort(), ['brands', 'groups', 'schemaVersion', 'version']);
+assert.equal(presentation.schemaVersion, 1);
+assert.ok(typeof presentation.version === 'string' && presentation.version.trim());
+assert.ok(Array.isArray(presentation.groups) && presentation.groups.length > 0 && presentation.groups.length <= 12);
+const groupIds = new Set();
+const groupedPlugins = new Set();
+for (const group of presentation.groups) {
+  assert.deepEqual(Object.keys(group).sort(), ['id', 'pluginIds', 'title']);
+  assert.match(group.id, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+  assert.ok(!groupIds.has(group.id), `Duplicate category: ${group.id}`);
+  groupIds.add(group.id);
+  for (const language of ['en', 'zh']) assert.ok(group.title[language]?.trim());
+  for (const [language, title] of Object.entries(group.title)) {
+    assert.ok(['en', 'zh', 'ru'].includes(language));
+    assert.ok(typeof title === 'string' && title.trim() && title.length <= 120);
+  }
+  assert.ok(Array.isArray(group.pluginIds) && group.pluginIds.length > 0 && group.pluginIds.length <= 100);
+  for (const id of group.pluginIds) {
+    assert.ok(names.has(id), `Category references unknown plugin: ${id}`);
+    assert.ok(!groupedPlugins.has(id), `Plugin appears in multiple categories: ${id}`);
+    groupedPlugins.add(id);
+  }
+}
+assert.equal(groupedPlugins.size, names.size, 'Assign every published card to one category');
+const brands = new Set(['airtable', 'notion', 'github', 'linear', 'supabase', 'atlassian', 'sentry', 'plane', 'jotform', 'posthog', 'railway', 'stripe', 'exa', 'context7', 'firecrawl', 'render']);
+for (const [id, brand] of Object.entries(presentation.brands)) {
+  assert.ok(names.has(id), `Brand references unknown plugin: ${id}`);
+  assert.ok(brands.has(brand), `Unsupported bundled logo: ${brand}`);
+}
+for (const card of catalog.plugins.filter(card => card.kind === 'mcp')) {
+  assert.ok(presentation.brands[card.id], `Missing connector logo: ${card.id}`);
+}
+console.log(`Validated catalog ${catalog.version}: ${names.size} cards, ${marketplace.plugins.length} immutable Ompra packages, ${groupIds.size} categories, ${Object.keys(presentation.brands).length} service logos.`);

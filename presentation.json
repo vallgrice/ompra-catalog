@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "groups": [
+    {
+      "id": "development",
+      "title": {
+        "en": "Development",
+        "zh": "开发",
+        "ru": "Разработка"
+      },
+      "pluginIds": [
+        "ompra-starter/github",
+        "ompra-starter/supabase",
+        "ompra-starter/context7",
+        "ompra-starter/sentry",
+        "ompra-starter/railway",
+        "ompra-starter/render"
+      ]
+    },
+    {
+      "id": "productivity",
+      "title": {
+        "en": "Knowledge and data",
+        "zh": "知识与数据",
+        "ru": "Документы и данные"
+      },
+      "pluginIds": [
+        "ompra-starter/airtable",
+        "ompra-starter/notion",
+        "ompra-starter/jotform"
+      ]
+    },
+    {
+      "id": "projects",
+      "title": {
+        "en": "Projects and teams",
+        "zh": "项目与团队",
+        "ru": "Проекты и команда"
+      },
+      "pluginIds": [
+        "ompra-starter/linear",
+        "ompra-starter/atlassian",
+        "ompra-starter/plane"
+      ]
+    },
+    {
+      "id": "research",
+      "title": {
+        "en": "Search and web",
+        "zh": "搜索与网页",
+        "ru": "Поиск и веб"
+      },
+      "pluginIds": [
+        "ompra-starter/firecrawl",
+        "ompra-starter/exa"
+      ]
+    },
+    {
+      "id": "business",
+      "title": {
+        "en": "Business and analytics",
+        "zh": "业务与分析",
+        "ru": "Бизнес и аналитика"
+      },
+      "pluginIds": [
+        "ompra-starter/stripe",
+        "ompra-starter/posthog"
+      ]
+    },
+    {
+      "id": "ompra-skills",
+      "title": {
+        "en": "Coding skills",
+        "zh": "编程技能",
+        "ru": "Навыки для кода"
+      },
+      "pluginIds": [
+        "ompra-starter/review",
+        "ompra-starter/testing",
+        "ompra-starter/debugging",
+        "ompra-starter/refactoring",
+        "ompra-starter/documentation",
+        "ompra-starter/security"
+      ]
+    }
+  ],
+  "brands": {
+    "ompra-starter/github": "github",
+    "ompra-starter/supabase": "supabase",
+    "ompra-starter/context7": "context7",
+    "ompra-starter/sentry": "sentry",
+    "ompra-starter/railway": "railway",
+    "ompra-starter/render": "render",
+    "ompra-starter/airtable": "airtable",
+    "ompra-starter/notion": "notion",
+    "ompra-starter/jotform": "jotform",
+    "ompra-starter/linear": "linear",
+    "ompra-starter/atlassian": "atlassian",
+    "ompra-starter/plane": "plane",
+    "ompra-starter/firecrawl": "firecrawl",
+    "ompra-starter/exa": "exa",
+    "ompra-starter/stripe": "stripe",
+    "ompra-starter/posthog": "posthog"
+  }
+}
