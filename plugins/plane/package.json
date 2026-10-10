@@ -1,11 +1,11 @@
 {
   "name": "@ompra/mcp-plane",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Work with Plane projects, work items and planning.",
   "license": "MIT",
   "omp": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Work with Plane projects, work items and planning."
   }
 }
