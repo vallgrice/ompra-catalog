@@ -1,0 +1,11 @@
+{
+  "name": "@ompra/mcp-context7",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Current library documentation and code examples.",
+  "license": "MIT",
+  "omp": {
+    "version": "1.0.0",
+    "description": "Current library documentation and code examples."
+  }
+}

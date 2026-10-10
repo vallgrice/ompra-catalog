@@ -1,0 +1,11 @@
+{
+  "name": "@ompra/mcp-sentry",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Investigate application errors and performance issues.",
+  "license": "MIT",
+  "omp": {
+    "version": "1.0.0",
+    "description": "Investigate application errors and performance issues."
+  }
+}

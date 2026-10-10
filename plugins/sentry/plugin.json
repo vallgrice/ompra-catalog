@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "sentry",
+  "version": "1.0.0",
+  "description": "Investigate application errors and performance issues.",
+  "author": {
+    "name": "Ompra contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ompra",
+    "mcp",
+    "integration",
+    "sentry"
+  ]
+}

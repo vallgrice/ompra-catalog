@@ -1,0 +1,11 @@
+{
+  "name": "@ompra/mcp-posthog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Explore product analytics, experiments and feature flags.",
+  "license": "MIT",
+  "omp": {
+    "version": "1.0.0",
+    "description": "Explore product analytics, experiments and feature flags."
+  }
+}

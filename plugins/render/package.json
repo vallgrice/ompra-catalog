@@ -1,0 +1,11 @@
+{
+  "name": "@ompra/mcp-render",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Inspect services, deployment logs and supported Render resources.",
+  "license": "MIT",
+  "omp": {
+    "version": "1.0.0",
+    "description": "Inspect services, deployment logs and supported Render resources."
+  }
+}

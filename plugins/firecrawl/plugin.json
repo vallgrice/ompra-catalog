@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "firecrawl",
+  "version": "1.0.0",
+  "description": "Search, scrape and parse public web content.",
+  "author": {
+    "name": "Ompra contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ompra",
+    "mcp",
+    "integration",
+    "firecrawl"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "posthog",
+  "version": "1.0.0",
+  "description": "Explore product analytics, experiments and feature flags.",
+  "author": {
+    "name": "Ompra contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ompra",
+    "mcp",
+    "integration",
+    "posthog"
+  ]
+}

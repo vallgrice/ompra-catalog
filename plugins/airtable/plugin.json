@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "airtable",
+  "version": "1.0.0",
+  "description": "Work with authorized Airtable bases, schemas and records.",
+  "author": {
+    "name": "Ompra contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ompra",
+    "mcp",
+    "integration",
+    "airtable"
+  ]
+}

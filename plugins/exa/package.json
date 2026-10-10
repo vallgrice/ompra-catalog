@@ -1,0 +1,11 @@
+{
+  "name": "@ompra/mcp-exa",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Search the web and fetch clean page content.",
+  "license": "MIT",
+  "omp": {
+    "version": "1.0.0",
+    "description": "Search the web and fetch clean page content."
+  }
+}

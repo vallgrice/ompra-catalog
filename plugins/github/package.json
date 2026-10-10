@@ -1,0 +1,11 @@
+{
+  "name": "@ompra/mcp-github",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Connect repositories, issues and pull requests using your token.",
+  "license": "MIT",
+  "omp": {
+    "version": "1.0.0",
+    "description": "Connect repositories, issues and pull requests using your token."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@ompra/mcp-firecrawl",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Search, scrape and parse public web content.",
+  "license": "MIT",
+  "omp": {
+    "version": "1.0.0",
+    "description": "Search, scrape and parse public web content."
+  }
+}

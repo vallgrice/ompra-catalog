@@ -1,0 +1,11 @@
+{
+  "name": "@ompra/mcp-notion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Search and work with authorized Notion content.",
+  "license": "MIT",
+  "omp": {
+    "version": "1.0.0",
+    "description": "Search and work with authorized Notion content."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "supabase",
+  "version": "1.0.0",
+  "description": "Inspect Supabase projects and data with read-only tools.",
+  "author": {
+    "name": "Ompra contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ompra",
+    "mcp",
+    "integration",
+    "supabase"
+  ]
+}

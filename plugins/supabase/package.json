@@ -1,0 +1,11 @@
+{
+  "name": "@ompra/mcp-supabase",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Inspect Supabase projects and data with read-only tools.",
+  "license": "MIT",
+  "omp": {
+    "version": "1.0.0",
+    "description": "Inspect Supabase projects and data with read-only tools."
+  }
+}

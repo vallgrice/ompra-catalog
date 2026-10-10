@@ -1,0 +1,11 @@
+{
+  "name": "@ompra/mcp-linear",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Read Linear issues, projects and comments.",
+  "license": "MIT",
+  "omp": {
+    "version": "1.0.0",
+    "description": "Read Linear issues, projects and comments."
+  }
+}
