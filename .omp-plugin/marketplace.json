@@ -1,0 +1,144 @@
+{
+  "name": "ompra-starter",
+  "owner": {
+    "name": "Ompra contributors"
+  },
+  "metadata": {
+    "description": "Curated Ompra instruction skills. Installation and upgrades fetch immutable Git commits.",
+    "version": "1.0.1"
+  },
+  "plugins": [
+    {
+      "name": "review",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/review",
+        "sha": "71b589a0f918a93315d751630dada8851a872cac"
+      },
+      "description": "Find concrete regressions in a change and explain their impact.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "review",
+      "tags": [
+        "ompra",
+        "skill",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "name": "testing",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/testing",
+        "sha": "71b589a0f918a93315d751630dada8851a872cac"
+      },
+      "description": "Cover observable behavior and edge cases with focused tests.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "testing",
+      "tags": [
+        "ompra",
+        "skill",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "name": "debugging",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/debugging",
+        "sha": "71b589a0f918a93315d751630dada8851a872cac"
+      },
+      "description": "Reproduce a failure, test hypotheses, and verify a minimal fix.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "debugging",
+      "tags": [
+        "ompra",
+        "skill",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "name": "refactoring",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/refactoring",
+        "sha": "71b589a0f918a93315d751630dada8851a872cac"
+      },
+      "description": "Improve structure while preserving existing behavior and contracts.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "refactoring",
+      "tags": [
+        "ompra",
+        "skill",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "name": "documentation",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/documentation",
+        "sha": "71b589a0f918a93315d751630dada8851a872cac"
+      },
+      "description": "Write instructions and reference material grounded in the actual code.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "documentation",
+      "tags": [
+        "ompra",
+        "skill",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "name": "security",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/security",
+        "sha": "71b589a0f918a93315d751630dada8851a872cac"
+      },
+      "description": "Review trust boundaries, sensitive data, and realistic abuse paths.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "security",
+      "tags": [
+        "ompra",
+        "skill",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    }
+  ]
+}

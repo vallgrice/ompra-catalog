@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.1",
+  "updatedAt": "2026-10-10T16:24:16.958Z",
+  "marketplaces": [
+    {
+      "id": "ompra-starter",
+      "name": "Ompra collection",
+      "source": "https://raw.githubusercontent.com/vallgrice/ompra-catalog/main/.omp-plugin/marketplace.json"
+    }
+  ],
+  "plugins": [
+    {
+      "id": "ompra-starter/review",
+      "marketplace": "ompra-starter",
+      "name": "review",
+      "version": "1.0.0",
+      "kind": "skill",
+      "title": {
+        "en": "Code review",
+        "zh": "代码审查",
+        "ru": "Ревью кода"
+      },
+      "summary": {
+        "en": "Find concrete regressions in a change and explain their impact.",
+        "zh": "发现改动中的具体回归，并解释影响。",
+        "ru": "Находит конкретные регрессии в изменениях и объясняет их влияние."
+      },
+      "description": {
+        "en": "A focused review workflow: inspect the diff and surrounding behavior, verify suspected defects, and report actionable findings with file references. The skill does not change files unless you ask it to.",
+        "zh": "专注的审查流程：阅读差异和相关行为，验证疑似缺陷，并用文件位置报告可执行的发现。只有明确要求时才修改文件。",
+        "ru": "Последовательное ревью: изучить diff и окружающий код, проверить подозрения и дать конкретные замечания со ссылками на файлы. Навык меняет файлы только по запросу."
+      },
+      "category": "review",
+      "icon": "scan-eye",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": false,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Authored MIT Ompra skill. Package manifests and structure are checked; installation uses an immutable Git commit. Model output quality and security are not certified.",
+          "zh": "Ompra 原创 MIT 技能。已检查清单和结构，安装使用固定 Git 提交；不对模型输出质量或安全性作认证。",
+          "ru": "Авторский MIT-навык Ompra. Проверяются манифесты и структура; установка использует фиксированный Git-коммит. Качество ответов модели и безопасность не сертифицируются."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use the ompra-review skill to review the current uncommitted changes for bugs and regressions."
+        ],
+        "zh": [
+          "使用 ompra-review 技能检查当前未提交的改动，找出缺陷和回归。"
+        ],
+        "ru": [
+          "Используй навык ompra-review и проверь текущие незакоммиченные изменения на ошибки и регрессии."
+        ]
+      },
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/testing",
+      "marketplace": "ompra-starter",
+      "name": "testing",
+      "version": "1.0.0",
+      "kind": "skill",
+      "title": {
+        "en": "Meaningful tests",
+        "zh": "有效测试",
+        "ru": "Содержательные тесты"
+      },
+      "summary": {
+        "en": "Cover observable behavior and edge cases with focused tests.",
+        "zh": "用聚焦测试覆盖可观察行为和边界情况。",
+        "ru": "Проверяет наблюдаемое поведение и важные граничные случаи."
+      },
+      "description": {
+        "en": "Build a small test plan from the public behavior, reuse the existing test harness, and add regression coverage where it provides real value. Reports what ran and what remains untested.",
+        "zh": "从公开行为制定精简测试计划，复用现有测试框架，并在有价值的地方补充回归覆盖。明确报告执行结果和未验证部分。",
+        "ru": "Формирует небольшой план проверок по поведению, использует существующий тестовый стенд и добавляет полезные регрессионные сценарии. Отдельно сообщает, что проверено и что осталось."
+      },
+      "category": "testing",
+      "icon": "flask-conical",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": false,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Authored MIT Ompra skill. Package manifests and structure are checked; installation uses an immutable Git commit. Model output quality and security are not certified.",
+          "zh": "Ompra 原创 MIT 技能。已检查清单和结构，安装使用固定 Git 提交；不对模型输出质量或安全性作认证。",
+          "ru": "Авторский MIT-навык Ompra. Проверяются манифесты и структура; установка использует фиксированный Git-коммит. Качество ответов модели и безопасность не сертифицируются."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use the ompra-testing skill to add useful regression coverage for the current change and run the relevant checks."
+        ],
+        "zh": [
+          "使用 ompra-testing 技能为当前改动补充有价值的回归测试，并运行相关检查。"
+        ],
+        "ru": [
+          "Используй навык ompra-testing, добавь полезные регрессионные проверки текущего изменения и запусти подходящие тесты."
+        ]
+      },
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/debugging",
+      "marketplace": "ompra-starter",
+      "name": "debugging",
+      "version": "1.0.0",
+      "kind": "skill",
+      "title": {
+        "en": "Root-cause debugging",
+        "zh": "根因调试",
+        "ru": "Поиск причины ошибки"
+      },
+      "summary": {
+        "en": "Reproduce a failure, test hypotheses, and verify a minimal fix.",
+        "zh": "复现故障，检验假设，并验证最小修复。",
+        "ru": "Воспроизводит сбой, проверяет гипотезы и подтверждает минимальное исправление."
+      },
+      "description": {
+        "en": "A debugging workflow that separates evidence from assumptions, narrows the failing boundary, and fixes the root cause. Uses existing logs and checks without collecting secrets or changing production state.",
+        "zh": "区分证据与假设，缩小故障边界并修复根因。使用现有日志和检查，不收集机密，也不更改生产状态。",
+        "ru": "Отделяет факты от предположений, сужает проблемную область и исправляет первопричину. Использует существующие логи и проверки без сбора секретов и изменений в production."
+      },
+      "category": "debugging",
+      "icon": "bug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": false,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Authored MIT Ompra skill. Package manifests and structure are checked; installation uses an immutable Git commit. Model output quality and security are not certified.",
+          "zh": "Ompra 原创 MIT 技能。已检查清单和结构，安装使用固定 Git 提交；不对模型输出质量或安全性作认证。",
+          "ru": "Авторский MIT-навык Ompra. Проверяются манифесты и структура; установка использует фиксированный Git-коммит. Качество ответов модели и безопасность не сертифицируются."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use the ompra-debugging skill to diagnose this failure, reproduce its cause, and verify a focused fix."
+        ],
+        "zh": [
+          "使用 ompra-debugging 技能诊断此故障，复现原因，并验证有针对性的修复。"
+        ],
+        "ru": [
+          "Используй навык ompra-debugging: найди причину этого сбоя, воспроизведи её и проверь точечное исправление."
+        ]
+      },
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/refactoring",
+      "marketplace": "ompra-starter",
+      "name": "refactoring",
+      "version": "1.0.0",
+      "kind": "skill",
+      "title": {
+        "en": "Safe refactoring",
+        "zh": "安全重构",
+        "ru": "Аккуратный рефакторинг"
+      },
+      "summary": {
+        "en": "Improve structure while preserving existing behavior and contracts.",
+        "zh": "改善结构，同时保持现有行为和接口契约。",
+        "ru": "Улучшает структуру, сохраняя поведение и существующие контракты."
+      },
+      "description": {
+        "en": "Identify the smallest structural change, trace consumers and imports, preserve compatibility, and verify the result. Avoids opportunistic rewrites and unrelated formatting changes.",
+        "zh": "确定最小结构改动，追踪调用者与导入，保持兼容并验证结果。避免顺带重写和无关格式化。",
+        "ru": "Выбирает минимальное структурное изменение, проверяет потребителей и импорты, сохраняет совместимость и проверяет результат. Избегает попутных переписываний и массового форматирования."
+      },
+      "category": "refactoring",
+      "icon": "git-branch",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": false,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Authored MIT Ompra skill. Package manifests and structure are checked; installation uses an immutable Git commit. Model output quality and security are not certified.",
+          "zh": "Ompra 原创 MIT 技能。已检查清单和结构，安装使用固定 Git 提交；不对模型输出质量或安全性作认证。",
+          "ru": "Авторский MIT-навык Ompra. Проверяются манифесты и структура; установка использует фиксированный Git-коммит. Качество ответов модели и безопасность не сертифицируются."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use the ompra-refactoring skill to simplify this area while preserving its behavior and public interfaces."
+        ],
+        "zh": [
+          "使用 ompra-refactoring 技能简化这部分代码，同时保持行为和公开接口不变。"
+        ],
+        "ru": [
+          "Используй навык ompra-refactoring и упрости этот участок, сохранив его поведение и публичные интерфейсы."
+        ]
+      },
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/documentation",
+      "marketplace": "ompra-starter",
+      "name": "documentation",
+      "version": "1.0.0",
+      "kind": "skill",
+      "title": {
+        "en": "Project documentation",
+        "zh": "项目文档",
+        "ru": "Документация проекта"
+      },
+      "summary": {
+        "en": "Write instructions and reference material grounded in the actual code.",
+        "zh": "依据实际代码编写操作说明和参考文档。",
+        "ru": "Пишет инструкции и справочные материалы по реальному коду."
+      },
+      "description": {
+        "en": "Document setup, workflows, configuration, and API behavior from verified sources in the repository. Checks commands and links where practical and avoids invented features or unsupported compatibility claims.",
+        "zh": "根据仓库中可验证的来源记录安装、工作流、配置和 API 行为。尽量检查命令与链接，不编造功能或未经支持的兼容性承诺。",
+        "ru": "Описывает установку, рабочие сценарии, конфигурацию и API по проверяемым источникам в репозитории. По возможности проверяет команды и ссылки, не выдумывает функции и совместимость."
+      },
+      "category": "documentation",
+      "icon": "book-open",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": false,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Authored MIT Ompra skill. Package manifests and structure are checked; installation uses an immutable Git commit. Model output quality and security are not certified.",
+          "zh": "Ompra 原创 MIT 技能。已检查清单和结构，安装使用固定 Git 提交；不对模型输出质量或安全性作认证。",
+          "ru": "Авторский MIT-навык Ompra. Проверяются манифесты и структура; установка использует фиксированный Git-коммит. Качество ответов модели и безопасность не сертифицируются."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use the ompra-documentation skill to update the project instructions for the current implementation."
+        ],
+        "zh": [
+          "使用 ompra-documentation 技能，依据当前实现更新项目说明。"
+        ],
+        "ru": [
+          "Используй навык ompra-documentation и обнови инструкции проекта в соответствии с текущей реализацией."
+        ]
+      },
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/security",
+      "marketplace": "ompra-starter",
+      "name": "security",
+      "version": "1.0.0",
+      "kind": "skill",
+      "title": {
+        "en": "Security review",
+        "zh": "安全审查",
+        "ru": "Проверка безопасности"
+      },
+      "summary": {
+        "en": "Review trust boundaries, sensitive data, and realistic abuse paths.",
+        "zh": "检查信任边界、敏感数据和现实滥用途径。",
+        "ru": "Проверяет границы доверия, чувствительные данные и реальные пути злоупотребления."
+      },
+      "description": {
+        "en": "A defensive source review focused on authentication, authorization, input handling, secret exposure, and unsafe execution. Produces evidence-backed findings; it is not a security certification or an autonomous penetration test.",
+        "zh": "面向防御的源码审查，重点检查认证、授权、输入处理、机密泄露和不安全执行。给出有证据的发现；并非安全认证或自主渗透测试。",
+        "ru": "Защитное ревью кода: аутентификация, права, обработка ввода, утечки секретов и небезопасное выполнение. Даёт замечания с доказательствами; не является сертификацией безопасности или автономным пентестом."
+      },
+      "category": "security",
+      "icon": "shield-check",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": false,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Authored MIT Ompra skill. Package manifests and structure are checked; installation uses an immutable Git commit. Model output quality and security are not certified.",
+          "zh": "Ompra 原创 MIT 技能。已检查清单和结构，安装使用固定 Git 提交；不对模型输出质量或安全性作认证。",
+          "ru": "Авторский MIT-навык Ompra. Проверяются манифесты и структура; установка использует фиксированный Git-коммит. Качество ответов модели и безопасность не сертифицируются."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use the ompra-security skill to review the changed code for concrete security issues and recommend focused mitigations."
+        ],
+        "zh": [
+          "使用 ompra-security 技能检查改动代码中的具体安全问题，并建议有针对性的修复。"
+        ],
+        "ru": [
+          "Используй навык ompra-security: проверь изменённый код на конкретные проблемы безопасности и предложи точечные исправления."
+        ]
+      },
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    }
+  ]
+}
