@@ -126,9 +126,9 @@
         "ru": "Работа с разрешёнными базами, схемами и записями Airtable."
       },
       "description": {
-        "en": "Discover bases and schemas, read records and perform permitted record or schema changes. After installation, open Settings → MCP, select airtable:api and choose Reauthorize to sign in and consent in your browser. Installation alone does not connect an account. Authorize only the bases or interfaces you need. Airtable permissions, API quotas and administrator policies apply. Automation activation still requires the Airtable UI. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
-        "zh": "发现数据库及结构、读取记录，并执行权限允许的记录或结构修改。 安装后打开设置 → MCP，选择 airtable:api，点击 Reauthorize 在浏览器中登录并授权。仅安装不会连接账户。 仅授权需要的数据库或界面；受 Airtable 权限、API 限额和管理员策略约束。启用自动化仍需使用 Airtable 界面。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
-        "ru": "Находит базы и их структуру, читает записи и выполняет разрешённые изменения записей или схем. После установки откройте Настройки → MCP, выберите airtable:api и нажмите Reauthorize для входа и согласия в браузере. Установка сама по себе не подключает аккаунт. Выбирайте при входе нужные базы или интерфейсы. Действуют права Airtable, квоты API и политики администратора. Активация автоматизаций выполняется в интерфейсе Airtable. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+        "en": "Bring authorized Airtable bases into your Ompra workspace. Explore tables and fields, find records, and work with your project data through conversation.\n\nYour Airtable permissions and the resources you authorize determine which tools and data are available. Installing the package does not sign you in. Connect your account before using it; activation of automations still takes place in Airtable.",
+        "zh": "将获授权的 Airtable 数据库接入 Ompra 工作区。通过对话查看表与字段、查找记录并处理项目数据。\n\n可用的工具和数据取决于您的 Airtable 权限及授权资源。安装包不会自动登录；使用前请连接账户。启用自动化仍需在 Airtable 中完成。",
+        "ru": "Подключите разрешённые базы Airtable к рабочему пространству Ompra. Изучайте таблицы и поля, находите записи и работайте с данными проекта через диалог.\n\nДоступные инструменты и данные зависят от ваших прав в Airtable и выбранных при авторизации ресурсов. Установка пакета не выполняет вход: перед использованием подключите аккаунт. Активация автоматизаций остаётся в Airtable."
       },
       "category": "integration",
       "icon": "plug",
@@ -151,13 +151,16 @@
       },
       "prompts": {
         "en": [
-          "Use Airtable to inspect the schema of an authorized base and summarize its tables and relationships without changing records."
+          "Show my authorized bases and summarize the tables in my project tracker.",
+          "Find overdue tasks and group them by owner."
         ],
         "zh": [
-          "使用 Airtable 查看已授权数据库的结构，概括表及其关联，不修改记录。"
+          "列出我已授权的数据库，并概括项目跟踪库中的表。",
+          "找出逾期任务，并按负责人分组。"
         ],
         "ru": [
-          "Посмотри через Airtable структуру доступной базы и опиши таблицы и связи, не меняя записи."
+          "Покажи доступные базы и опиши таблицы в моём трекере проектов.",
+          "Найди просроченные задачи и сгруппируй их по ответственным."
         ]
       },
       "homepage": "https://airtable.com/developers/agents/mcp/getting-started",

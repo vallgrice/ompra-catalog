@@ -5,10 +5,12 @@ Connect Ompra to [Airtable's official hosted MCP server](https://airtable.com/de
 ## 🚀 Connect your account
 
 1. Install **Airtable** from Ompra's plugin catalog. Allow Ompra to reload plugins if prompted.
-2. Open **Settings → MCP** and find **`airtable:api`**.
-3. Open the server's action menu and select **Reauthorize**.
+2. Stay on the **Airtable** detail page. Under **Applications**, use **Connect → Open browser**.
+3. The page displays the real connection status and tool count. While authorization is pending, you can cancel it here or use the inline manual-code fallback.
 4. Complete Airtable's browser authorization. Choose the bases, apps, or workspaces that Ompra may access.
 5. Return to Ompra and wait for the server to reconnect. Confirm it is connected and exposes tools before asking the agent to use Airtable.
+
+Older Ompra builds use **Settings → MCP → `airtable:api` → Reauthorize** instead. Updating catalog metadata does not add the new interface to an older EXE.
 
 Try a read operation first: “List the Airtable bases I authorized, then describe the tables in my Project Tracker base.” After checking the result, request edits explicitly.
 

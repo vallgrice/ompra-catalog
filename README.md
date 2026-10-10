@@ -8,7 +8,7 @@
 [![Catalog: independent updates](https://img.shields.io/badge/catalog-independent_updates-64748b?style=flat-square)](#updates)
 
 This repository hosts Ompra's storefront metadata, native OMP marketplace, and
-installable packages. **Catalog 1.1.1 contains 22 cards: 16 remote MCP connectors
+installable packages. **Catalog 1.1.2 contains 22 cards: 16 remote MCP connectors
 and six Ompra-authored skills.** The catalog updates independently of desktop app
 releases; existing versions with remote catalog support can fetch this selection.
 
@@ -132,8 +132,11 @@ services. Ompra is not claiming provider endorsement.
 ### Browser OAuth
 
 1. Install the connector and let Ompra reload plugins if prompted.
-2. Open **Settings → MCP**, find **`<package>:api`** (for example,
-   **`airtable:api`**), and select **Reauthorize** from its action menu.
+2. In current Ompra builds, stay on the plugin detail page and use
+   **Applications → Connect → Open browser**. Pending authorization, cancellation,
+   reconnect, and manual code entry are available there. In older builds, open
+   **Settings → MCP**, find **`<package>:api`** (for example, **`airtable:api`**),
+   and select **Reauthorize** from its action menu.
 3. Complete the provider's browser consent and choose the resources it may access.
 4. Return to Ompra, wait for reconnection, and check the status and tool count.
    Start with a harmless read request.
