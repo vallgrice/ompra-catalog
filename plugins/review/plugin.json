@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "review",
+  "version": "1.0.0",
+  "description": "Find concrete regressions in a change and explain their impact.",
+  "author": {
+    "name": "Ompra contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ompra",
+    "skill",
+    "review"
+  ]
+}
+

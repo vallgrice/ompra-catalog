@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "debugging",
+  "version": "1.0.0",
+  "description": "Reproduce a failure, test hypotheses, and verify a minimal fix.",
+  "author": {
+    "name": "Ompra contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ompra",
+    "skill",
+    "debugging"
+  ]
+}
+

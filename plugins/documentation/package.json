@@ -1,0 +1,12 @@
+{
+  "name": "@ompra/skill-documentation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Write instructions and reference material grounded in the actual code.",
+  "license": "MIT",
+  "omp": {
+    "version": "1.0.0",
+    "description": "Write instructions and reference material grounded in the actual code."
+  }
+}
+

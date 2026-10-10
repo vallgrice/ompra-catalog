@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "Cover observable behavior and edge cases with focused tests.",
+  "author": {
+    "name": "Ompra contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ompra",
+    "skill",
+    "testing"
+  ]
+}
+

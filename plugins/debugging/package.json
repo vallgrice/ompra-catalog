@@ -1,0 +1,12 @@
+{
+  "name": "@ompra/skill-debugging",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reproduce a failure, test hypotheses, and verify a minimal fix.",
+  "license": "MIT",
+  "omp": {
+    "version": "1.0.0",
+    "description": "Reproduce a failure, test hypotheses, and verify a minimal fix."
+  }
+}
+

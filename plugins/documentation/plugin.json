@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "documentation",
+  "version": "1.0.0",
+  "description": "Write instructions and reference material grounded in the actual code.",
+  "author": {
+    "name": "Ompra contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ompra",
+    "skill",
+    "documentation"
+  ]
+}
+

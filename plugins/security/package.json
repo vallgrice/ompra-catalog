@@ -1,0 +1,12 @@
+{
+  "name": "@ompra/skill-security",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Review trust boundaries, sensitive data, and realistic abuse paths.",
+  "license": "MIT",
+  "omp": {
+    "version": "1.0.0",
+    "description": "Review trust boundaries, sensitive data, and realistic abuse paths."
+  }
+}
+
