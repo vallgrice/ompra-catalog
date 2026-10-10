@@ -1,9 +1,9 @@
 /** Build the V1 app/native indexes after committing package contents. Does not commit or push. */
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { verifyImmutablePackage } from './package-validation.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sha = process.argv[2];
@@ -23,10 +23,7 @@ for (const card of connectors.plugins) {
   assert.equal(card.id, `ompra-starter/${card.name}`);
   assert.equal(card.marketplace, marketplace.name);
   assert.equal(card.kind, 'mcp');
-  for (const file of ['plugin.json', 'mcp.json', 'package.json', 'README.md', 'LICENSE']) {
-    const committed = execFileSync('git', ['show', `${sha}:plugins/${card.name}/${file}`], { cwd: root, encoding: 'utf8' });
-    assert.equal(committed.replaceAll('\r\n', '\n'), (await readFile(path.join(root, 'plugins', card.name, file), 'utf8')).replaceAll('\r\n', '\n'), `${card.name}/${file} differs from immutable commit`);
-  }
+  await verifyImmutablePackage(root, `plugins/${card.name}`, sha);
 }
 catalog.plugins = [...catalog.plugins.filter(card => !names.has(card.name)), ...connectors.plugins];
 catalog.version = version;

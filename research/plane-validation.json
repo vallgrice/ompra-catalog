@@ -1,0 +1,44 @@
+{
+  "checkedAt": "2026-10-10T19:55:50.243Z",
+  "package": "@ompra/mcp-plane",
+  "packageVersion": "1.0.1",
+  "skill": "ompra-plane",
+  "skillSha256": "20cbc7db72206f1aade7ff07a7a2ace2cd0077c8ad3710a77369aaf91ec6570c",
+  "engineCommit": "ba05fea603b57ae15e31f8c9d08719e8de419407",
+  "engineSha256": "b8562af8ff0bc992e6d69d08ccd23e672d5ab8ccdcd27c2db223d766494d8a19",
+  "syntheticDataPath": {
+    "passed": 8,
+    "checks": [
+      "Standard JSON escaping round-trips controls, Unicode, quotes and backslashes",
+      "Native MCPTool preserves structuredContent and request arguments",
+      "Large-output spill bounds presentation without changing structuredContent",
+      "Eval bridge retains all original description bytes",
+      "Sparse projection omits descriptions and preserves pagination metadata",
+      "Ordinary read preview is detectably truncated and unsuitable for JSON parsing",
+      "Strict Python decoder recovers the first document from the complete artifact file",
+      "No external network, credentials or user profile involved"
+    ]
+  },
+  "compiledSidecar": {
+    "passed": 9,
+    "checks": [
+      "Installs local Plane1.0.1 package with loopback MCP override",
+      "Discovers bundled ompra-plane skill automatically",
+      "Returns skill body with structured-result and small-page guidance",
+      "Persists individual skill enable and disable",
+      "Executes a namespaced MCP call with sparse fields and per_page20",
+      "Reports local MCP connection and tool inventory",
+      "Package disable removes both MCP and skill; enable restores both",
+      "New process retains installed package and enabled skill",
+      "Installed skill matches authored skill bytes"
+    ]
+  },
+  "boundaries": {
+    "externalAccountCalls": 0,
+    "realCredentials": false,
+    "userProfileUsed": false,
+    "providerOAuthTested": false,
+    "modelSkillComplianceGuaranteed": false,
+    "engineSourceModified": false
+  }
+}

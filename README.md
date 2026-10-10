@@ -8,8 +8,8 @@
 [![Catalog: independent updates](https://img.shields.io/badge/catalog-independent_updates-64748b?style=flat-square)](#updates)
 
 This repository hosts Ompra's storefront metadata, native OMP marketplace, and
-installable packages. **Catalog 1.1.2 contains 22 cards: 16 remote MCP connectors
-and six Ompra-authored skills.** The catalog updates independently of desktop app
+installable packages. **Catalog 1.1.3 contains 22 cards: 16 remote MCP connectors
+and six standalone Ompra-authored skills.** The catalog updates independently of desktop app
 releases; existing versions with remote catalog support can fetch this selection.
 
 - **A fresh selection:** discover catalog updates without replacing the app.
@@ -111,7 +111,7 @@ over HTTP and do not bundle Node, Python, browsers, or the providers' server cod
 | 🗄️ Supabase | Database structure and project diagnostics | Browser OAuth; package uses read-only mode |
 | 🔗 Atlassian | Jira and Confluence | Browser OAuth; organization policies apply |
 | 🐛 Sentry | Application errors and diagnostics | Browser OAuth |
-| 🛫 Plane | Work items, projects, and cycles | Browser OAuth |
+| 🛫 [Plane](plugins/plane/README.md) | Work items, projects, and cycles | Browser OAuth |
 | 🧾 Jotform | Forms and submissions | Browser OAuth |
 | 📊 PostHog | Product analytics and feature flags | Browser OAuth |
 | 🚆 Railway | Services, projects, and deployment context | Browser OAuth |
@@ -124,6 +124,13 @@ Keyless availability still has service limits. OAuth consent, scopes, resource
 selection, account plans, and administrator policies remain the provider's
 responsibility. MIT applies to our connector definitions, not to the hosted SaaS
 services. Ompra is not claiming provider endorsement.
+
+**Plane 1.0.1 also bundles the `ompra-plane` instruction skill.** It guides the
+agent to request brief fields, paginate explicitly, fetch descriptions only when
+needed, and process structured results instead of truncated text previews. It
+does not change the provider's server or enforce a response-size limit. To receive
+the skill in an existing installation, refresh the catalog, select **Update** on
+Plane, then reload the agent session. A new desktop EXE is not required.
 
 <a id="connect-account"></a>
 
@@ -273,10 +280,13 @@ From the repository root, run:
 npm run check
 ```
 
-The script checks consistency between both indexes and local packages, immutable
-Git references, licenses, and required translations. Ompra also validates the
-downloaded JSON against the full schema before displaying or saving it.
-You can run the same validator directly with `node scripts/validate.mjs`.
+The check runs offline regression tests for complete package-tree verification,
+including bundled MCP skills, binary files, Windows line endings and rejected
+symlinks, then validates both indexes, local packages, licenses and translations.
+The index builder compares every shipped file against its immutable Git commit.
+Ompra also validates downloaded JSON against the full schema before displaying
+or saving it. For schema and local-package validation alone, run
+`node scripts/validate.mjs`.
 
 [Unauthenticated remote probes](research/remote-probes.json) verified
 `initialize` and `tools/list` for the keyless Context7, Firecrawl, and Exa

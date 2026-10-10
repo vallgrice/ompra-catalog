@@ -1,9 +1,12 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { lstat, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { validateBundledSkills } from './package-validation.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const pluginDirectory = await lstat(path.join(root, 'plugins'));
+assert.ok(pluginDirectory.isDirectory() && !pluginDirectory.isSymbolicLink(), 'The plugins directory must not be a symlink');
 const json = async file => JSON.parse(await readFile(path.join(root, file), 'utf8'));
 const catalog = await json('catalog.json');
 const marketplace = await json('.omp-plugin/marketplace.json');
@@ -51,6 +54,7 @@ for (const card of catalog.plugins) {
   assert.deepEqual(card.requirements.runtimes, ['git']);
   assert.equal(card.requirements.network, true);
   const directory = `plugins/${card.name}`;
+  const skills = await validateBundledSkills(path.join(root, directory));
   const plugin = await json(`${directory}/plugin.json`);
   const pkg = await json(`${directory}/package.json`);
   assert.equal(plugin.version, card.version);
@@ -85,9 +89,7 @@ for (const card of catalog.plugins) {
   } else {
     assert.equal(card.kind, 'skill');
     assert.equal(card.requirements.account, false);
-    const skill = await readFile(path.join(root, directory, `skills/ompra-${card.name}/SKILL.md`), 'utf8');
-    assert.ok(skill.includes(`name: ompra-${card.name}`));
-    assert.ok(skill.includes('## Deliverable'));
+    assert.ok(skills.includes(`ompra-${card.name}`), `Missing skill: ompra-${card.name}`);
   }
   assert.ok((await readFile(path.join(root, directory, 'LICENSE'), 'utf8')).includes('MIT License'));
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": "1.1.2",
-  "updatedAt": "2026-10-10T19:02:41.767Z",
+  "version": "1.1.3",
+  "updatedAt": "2026-10-10T19:52:53.643Z",
   "marketplaces": [
     {
       "id": "ompra-starter",
@@ -767,7 +767,7 @@
       "id": "ompra-starter/plane",
       "marketplace": "ompra-starter",
       "name": "plane",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "kind": "mcp",
       "title": {
         "en": "Plane",
@@ -780,9 +780,9 @@
         "ru": "Работа с проектами, задачами и планированием Plane."
       },
       "description": {
-        "en": "Inspect work items and project context, then use supported planning and update tools within your workspace permissions. After installation, open Settings → MCP, select plane:api and choose Reauthorize to sign in and consent in your browser. Installation alone does not connect an account. Choose a Plane Cloud workspace during consent. Plan and role limits apply. This hosted endpoint is not a bridge to a private self-hosted Plane instance and does not enforce read-only access. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
-        "zh": "查看工作项和项目上下文，并在工作区权限范围内使用支持的规划和更新工具。 安装后打开设置 → MCP，选择 plane:api，点击 Reauthorize 在浏览器中登录并授权。仅安装不会连接账户。 授权时选择 Plane Cloud 工作区；受套餐和角色限制。此托管端点不能代理到私有自托管 Plane，也不强制只读。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
-        "ru": "Просматривает задачи и контекст проектов, использует поддерживаемые инструменты планирования и обновления в пределах прав рабочего пространства. После установки откройте Настройки → MCP, выберите plane:api и нажмите Reauthorize для входа и согласия в браузере. Установка сама по себе не подключает аккаунт. При входе выберите рабочее пространство Plane Cloud. Действуют ограничения тарифа и роли. Облачный endpoint не подключает частную self-hosted установку Plane и не принуждает к чтению. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+        "en": "Inspect work items and project context, then use supported planning and update tools within your workspace permissions. Includes the Ompra-authored Plane skill for sparse lists, explicit pagination and structured result handling. After installation, open Settings → Plugins → Plane → Applications and choose Connect → Open browser to sign in and consent. Older builds expose Reauthorize under Settings → MCP → plane:api. Installation alone does not connect an account. Choose a Plane Cloud workspace during consent. Plan and role limits apply. This hosted endpoint is not a bridge to a private self-hosted Plane instance and does not enforce read-only access. MIT covers this independent connector definition and instruction skill. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "查看工作项和项目上下文，并在工作区权限范围内使用支持的规划和更新工具。包含 Ompra 编写的 Plane 技能，用于精简字段列表、显式分页及结构化结果处理。安装后打开设置 → 插件 → Plane → 应用，选择 Connect → Open browser，在浏览器中登录并授权。旧版在设置 → MCP → plane:api 中提供 Reauthorize。仅安装不会连接账户。授权时选择 Plane Cloud 工作区；受套餐和角色限制。此托管端点不能代理到私有自托管 Plane，也不强制只读。MIT 适用于此独立连接定义和指令技能；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Просматривает задачи и контекст проектов, использует поддерживаемые инструменты планирования и обновления в пределах прав рабочего пространства. Включает собственный навык Ompra для кратких списков, явной пагинации и обработки структурированных результатов. После установки откройте Настройки → Плагины → Plane → Приложения и выберите Connect → Open browser для входа и согласия. В старых сборках Reauthorize доступен в Настройки → MCP → plane:api. Установка сама по себе не подключает аккаунт. При входе выберите рабочее пространство Plane Cloud. Действуют ограничения тарифа и роли. Облачный endpoint не подключает частную self-hosted установку Plane и не принуждает к чтению. MIT распространяется на независимое определение подключения и инструкцию навыка. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
       },
       "category": "integration",
       "icon": "plug",
@@ -805,13 +805,16 @@
       },
       "prompts": {
         "en": [
-          "Use Plane to read the selected project's work items and summarize the next priorities and current blockers."
+          "Use the ompra-plane skill to summarize priorities in the selected project. Request brief fields and paginate explicitly; fetch descriptions only for relevant items. Report whether all pages were reviewed.",
+          "Count the selected project's work items by priority using Plane's count action, without downloading all descriptions."
         ],
         "zh": [
-          "使用 Plane 阅读所选项目的工作项，概括后续优先级和当前阻塞项。"
+          "使用 ompra-plane 技能概括所选项目的优先事项。请求精简字段并显式分页；仅获取相关工作项的描述。说明是否已查看所有页面。",
+          "通过 Plane 的 count 操作按优先级统计所选项目的工作项，无需下载全部描述。"
         ],
         "ru": [
-          "Прочитай через Plane задачи выбранного проекта и составь сводку ближайших приоритетов и блокеров."
+          "Используй навык ompra-plane и составь сводку приоритетов выбранного проекта. Запрашивай краткие поля с явной пагинацией, описания получай только для нужных задач. Укажи, просмотрены ли все страницы.",
+          "Посчитай задачи выбранного проекта по приоритетам через count в Plane, без выгрузки всех описаний."
         ]
       },
       "homepage": "https://developers.plane.so/dev-tools/mcp-server",
