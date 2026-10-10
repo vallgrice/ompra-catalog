@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-10",
+  "scope": "Primary-source documentation research. No authenticated Ompra connection or account operation was performed. Configuration references require adaptation to OMP's package schema.",
+  "entries": [
+    {
+      "id": "sentry",
+      "name": "Sentry",
+      "official": true,
+      "endpoint": "https://mcp.sentry.dev/mcp",
+      "transport": "Streamable HTTP",
+      "authentication": "Hosted service requires OAuth; generic HTTP MCP clients are documented. Dynamic client registration and the complete Ompra authorization/refresh flow still require verification.",
+      "runtime": "Hosted HTTP does not require a separate local runtime.",
+      "capabilities": ["Search errors and issues", "Investigate application performance", "Triage issues and inspect projects"],
+      "limitations": ["Scope the endpoint to a chosen organization/project where possible.", "Account permissions and service terms apply.", "Do not mark connected until authenticated discovery and a permitted tool call pass in Ompra."],
+      "redistributionLicense": null,
+      "sources": ["https://mcp.sentry.dev/", "https://github.com/getsentry/sentry-mcp"]
+    },
+    {
+      "id": "posthog",
+      "name": "PostHog",
+      "official": true,
+      "endpoint": "https://mcp.posthog.com/mcp",
+      "transport": "Streamable HTTP",
+      "authentication": "A personal API key as Authorization Bearer is documented for native HTTP clients. The hosted edge also serves OAuth discovery; Ompra OAuth/DCR compatibility has not been verified.",
+      "runtime": "Hosted HTTP does not require mcp-remote or a separate Node runtime when the host supports native HTTP.",
+      "capabilities": ["Query product analytics", "Inspect dashboards and experiments", "Work with feature flags and error tracking"],
+      "limitations": ["Use least-privilege personal API key scopes and selected feature/tool groups.", "The default service surface can expose a single CLI-like exec tool rather than many tools; verify the actual discovery response.", "Hosted service terms and project permissions apply; a wrapper license does not license the service.", "Self-hosted PostHog is a separate setup path; the cloud URL is not a proxy to arbitrary private instances."],
+      "redistributionLicense": null,
+      "sources": ["https://github.com/PostHog/posthog/blob/master/services/mcp/README.md", "https://posthog.com/docs/model-context-protocol/vscode"]
+    }
+  ]
+}

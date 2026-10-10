@@ -1,85 +1,162 @@
-# Ompra catalog
+# 🧩 Ompra Catalog
 
-Курируемый каталог плагинов и навыков для Ompra. Каталог обновляется отдельно от
-десктопного приложения. Исходные пакеты распространяются под MIT; лицензия
-стороннего плагина всегда указывается отдельно в его карточке.
+**English** · [Українська](README.uk.md)
 
-## Адреса
+**Curated plugins and skills for your Ompra workspace.**
 
-- Витрина: https://raw.githubusercontent.com/vallgrice/ompra-catalog/main/catalog.json
-- OMP marketplace: https://raw.githubusercontent.com/vallgrice/ompra-catalog/main/.omp-plugin/marketplace.json
+[![License: MIT](https://img.shields.io/badge/license-MIT-64748b?style=flat-square)](LICENSE)
+[![Catalog: independent updates](https://img.shields.io/badge/catalog-independent_updates-64748b?style=flat-square)](#updates)
 
-Обновлённая Ompra использует витрину по умолчанию. При открытии сразу показывается
-сохранённая копия, затем проверяется GitHub. Без сети остаётся последняя рабочая
-копия или встроенная подборка. В Settings → Plugins → Sources можно выбрать
-свой адрес, вернуть источник по умолчанию или включить встроенную подборку без сети.
+This repository hosts Ompra's storefront metadata, native OMP marketplace, and
+starter skill packages. The catalog is maintained independently of desktop app
+releases.
 
-**Обновление списка не обновляет код установленных плагинов.** Установка и Update
-выполняются только после подтверждения. Для загрузки пакетов из этого репозитория
-нужны Git и интернет; отдельный GitHub-аккаунт или токен пользователю не требуется.
-Для ответов агента используется провайдер, настроенный в Ompra.
+- **A fresh selection:** discover catalog updates without replacing the app.
+- **Updates you control:** review and confirm plugin installations and updates.
+- **Offline access:** use the last working catalog or the bundled selection.
 
-Если ранее установлена встроенная подборка `ompra-starter`, кнопка подключения
-источника переводит её на этот marketplace с сохранением ID и установок. Код
-пакетов, их настройки и включённое состояние при подключении не меняются.
+## 📑 Contents
 
-## Первая подборка
+- [Quick start](#quick-start)
+- [Starter skills](#starter-skills)
+- [Planned integrations](#planned-integrations)
+- [Maintaining the catalog](#maintaining)
+- [Publishing updates](#updates)
+- [Validation](#validation)
+- [License](#license)
 
-| Пакет | Навык | Назначение |
+<a id="quick-start"></a>
+
+## 🚀 Quick start
+
+In an Ompra version with remote catalog support:
+
+1. Open **Settings → Plugins → Sources** and select the default catalog.
+2. Select **Refresh catalog** and review the available plugin cards.
+3. Choose a plugin and confirm its installation.
+
+To configure the source manually, use this **storefront URL**:
+
+```text
+https://raw.githubusercontent.com/vallgrice/ompra-catalog/main/catalog.json
+```
+
+| Source | Purpose |
+|---|---|
+| [Storefront catalog](https://raw.githubusercontent.com/vallgrice/ompra-catalog/main/catalog.json) | Names, descriptions, requirements, and example prompts shown in Ompra |
+| [OMP marketplace](https://raw.githubusercontent.com/vallgrice/ompra-catalog/main/.omp-plugin/marketplace.json) | Package versions and immutable installation sources |
+
+**Requirements:** downloading packages from this repository needs Git and an
+internet connection. No separate GitHub account or token is required. The agent
+uses the model provider configured in Ompra.
+
+> **Refreshing the catalog does not update installed plugin code.** Installation
+> and updates require confirmation.
+
+The saved catalog appears immediately, followed by a GitHub refresh. Offline,
+Ompra keeps the last working copy or uses the bundled selection. In **Sources**,
+you can enter a custom URL, restore the default, or choose the bundled offline
+selection.
+
+If you previously installed the bundled `ompra-starter` selection, connecting
+this source switches it to this marketplace while preserving plugin IDs,
+installations, package code, settings, and enabled states.
+
+<a id="starter-skills"></a>
+
+## 🧰 Starter skills
+
+Six Ompra-authored skills are currently available:
+
+| Package | Skill | Purpose |
 |---|---|---|
-| review | ompra-review | Ревью изменений и проверка регрессий |
-| testing | ompra-testing | Тесты наблюдаемого поведения |
-| debugging | ompra-debugging | Поиск и проверка первопричины ошибки |
-| refactoring | ompra-refactoring | Рефакторинг с сохранением поведения |
-| documentation | ompra-documentation | Документация по действующему коду |
-| security | ompra-security | Проверка границ доверия и путей злоупотребления |
+| 👀 `review` | `ompra-review` | Review changes and check for regressions |
+| 🧪 `testing` | `ompra-testing` | Test observable behavior |
+| 🐛 `debugging` | `ompra-debugging` | Identify and verify the root cause of a bug |
+| 🧹 `refactoring` | `ompra-refactoring` | Refactor while preserving behavior |
+| 📚 `documentation` | `ompra-documentation` | Document the current code |
+| 🛡️ `security` | `ompra-security` | Review trust boundaries and abuse paths |
 
-Это текстовые инструкции, без исполняемых hooks и дополнительных npm-зависимостей.
-Проверка структуры не является сертификацией безопасности или качества ответов модели.
+These skills are text instructions with no executable hooks or additional npm
+dependencies. Structural validation does not certify security or the quality of
+model responses.
 
-## Что редактировать
+<a id="planned-integrations"></a>
 
-- `catalog.json` — названия, описания, требования, ссылки и примеры запросов.
-- `.omp-plugin/marketplace.json` — фактические версии и источники установки.
-- `plugins/<name>/skills/ompra-<name>/SKILL.md` — содержимое собственного навыка.
+## 🗺️ Planned integrations
 
-Названия `ompra-starter`, пакетов и навыков сохраняются между обновлениями.
-Не используйте существующий ID для другого автора или продукта. Добавляя сторонний
-плагин, проверьте совместимость с OMP, лицензию, платформы, реальные зависимости
-и способ авторизации. Не публикуйте ключи, токены и частные адреса.
+The [expanded selection inspired by OpenAI's catalog](CURATED.md) (in Russian)
+proposes **34 cards covering 28 integrations**, with primary sources, connection
+requirements, and priorities. Its machine-readable draft is [curation.json](curation.json).
 
-## Обновление
+> **Research draft:** these proposals are separate from the installable catalog.
+> An integration is published only after its package and connection flow pass
+> compatibility checks.
 
-Для изменения только описаний достаточно изменить `catalog.json`, увеличить
-версию каталога и обновить `updatedAt`, выполнить проверку и отправить commit в `main`.
+<a id="maintaining"></a>
 
-Для изменения навыка:
+## 🛠️ Maintaining the catalog
 
-1. Измените `SKILL.md`; увеличьте версию в `plugin.json`, `package.json` и `omp.version`.
-2. Создайте commit пакетов. Полный SHA этого commit будет источником новой версии.
-3. В `.omp-plugin/marketplace.json` измените версию и `source.sha` соответствующего
-   пакета на SHA из шага 2. Источник `git-subdir` указывает `plugins/<name>`.
-4. Согласуйте версию пакета в `catalog.json`, увеличьте версию каталога и `updatedAt`.
-5. Выполните `node scripts/validate.mjs`, создайте commit индекса и отправьте оба
-   commit в `main`. Не подменяйте содержимое уже опубликованной версии пакета.
-6. В Ompra нажмите Refresh catalog, проверьте карточку и подтвердите Update.
+| File | What to edit |
+|---|---|
+| [catalog.json](catalog.json) | Storefront names, descriptions, requirements, links, and example prompts |
+| [.omp-plugin/marketplace.json](.omp-plugin/marketplace.json) | Published package versions and installation sources |
+| `plugins/<name>/skills/ompra-<name>/SKILL.md` | The content of an Ompra-authored skill |
+| [curation.json](curation.json) and [research/](research/) | Proposed integrations and supporting research; separate from installation feeds |
 
-SHA закрепляет содержимое пакета независимо от последующих изменений ветки.
-Адреса витрины и marketplace остаются постоянными.
+Keep the `ompra-starter` name and package and skill names stable across updates.
+Do not reuse an existing ID for a different author or product. Before adding a
+third-party plugin, check OMP compatibility, licensing, supported platforms,
+actual dependencies, and authentication. Never publish keys, tokens, or private
+URLs.
 
-## Проверка
+<a id="updates"></a>
+
+## 🔄 Publishing updates
+
+### Metadata changes
+
+For description-only changes, edit `catalog.json`, increment the catalog
+version, update `updatedAt`, run validation, and commit and push the changes to
+`main`.
+
+### Skill changes
+
+1. Edit `SKILL.md` and increment `version` in `plugin.json` and `package.json`,
+   including the nested `omp.version` field in `package.json`.
+2. Commit the packages. The full commit SHA will identify the new package contents.
+3. In `.omp-plugin/marketplace.json`, update the package version and set
+   `source.sha` to the SHA from step 2. The `git-subdir` source points to
+   `plugins/<name>`.
+4. Match the package version in `catalog.json`, increment the catalog version,
+   and update `updatedAt`.
+5. Run `node scripts/validate.mjs`, commit the index changes, and push both
+   commits to `main`. Never replace the contents of an already published package
+   version.
+6. In Ompra, select **Refresh catalog**, review the card, and confirm **Update**.
+
+The SHA pins the package contents regardless of later branch changes. The
+storefront and marketplace URLs stay the same.
+
+<a id="validation"></a>
+
+## ✅ Validation
+
+From the repository root, run:
 
 ```sh
 node scripts/validate.mjs
 ```
 
-Скрипт проверяет согласованность двух индексов и локальных пакетов, неизменяемые
-Git-ссылки, лицензии и обязательные переводы. Ompra дополнительно валидирует
-скачанный JSON полной схемой перед отображением и сохранением.
+The script checks consistency between both indexes and local packages, immutable
+Git references, licenses, and required translations. Ompra also validates the
+downloaded JSON against the full schema before displaying or saving it.
 
----
+<a id="license"></a>
 
-Curated Ompra catalog and MIT skill packages. The storefront metadata and native
-OMP marketplace are separate from app releases. Packages use immutable Git commit
-sources and require Git/network to install. Refreshing metadata never silently
-upgrades installed code. Run `node scripts/validate.mjs` before publishing changes.
+## 📄 License
+
+Ompra-authored packages and documentation in this repository are distributed
+under the [MIT License](LICENSE). Third-party code retains its own license;
+each plugin card must identify it separately. Access to external services is
+subject to their own terms, account permissions, and plans.
