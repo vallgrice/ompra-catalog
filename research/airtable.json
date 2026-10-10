@@ -1,0 +1,65 @@
+{
+  "verifiedAt": "2026-10-10",
+  "slug": "airtable",
+  "name": "Airtable",
+  "publisher": "Airtable",
+  "packagePublisher": "Ompra contributors",
+  "availability": "Official hosted MCP, available on all Airtable plans. The Ompra package is an independent connector definition, not an Airtable endorsement.",
+  "endpoint": "https://mcp.airtable.com/mcp",
+  "transport": "Streamable HTTP",
+  "runtime": [],
+  "accountRequired": true,
+  "networkRequired": true,
+  "recommendedAuth": "OAuth through Ompra's existing MCP Reauthorize action. Airtable documents dynamic client registration for generic MCP clients; no borrowed client ID or bundled secret is needed.",
+  "authDiscovery": {
+    "protectedResourceMetadata": "https://mcp.airtable.com/.well-known/oauth-protected-resource",
+    "resource": "https://mcp.airtable.com",
+    "authorizationServer": "https://airtable.com/oauth2/v1",
+    "authorizationServerMetadata": "https://airtable.com/.well-known/oauth-authorization-server/oauth2/v1",
+    "registrationEndpoint": "https://airtable.com/oauth2/v1/register",
+    "authorizationEndpoint": "https://airtable.com/oauth2/v1/authorize",
+    "tokenEndpoint": "https://airtable.com/oauth2/v1/token",
+    "pkceMethods": ["S256"],
+    "tokenEndpointAuthMethods": ["client_secret_basic", "none"],
+    "resourceIndicatorsSupported": true,
+    "clientIdMetadataDocumentsSupported": true,
+    "scopesSupported": ["data.records:read", "data.records:write", "schema.bases:read", "schema.bases:write", "data.recordComments:read", "data.recordComments:write", "workspacesAndBases:read"]
+  },
+  "packageConfiguration": {
+    "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+    "mcpServers": {
+      "api": {
+        "type": "streamable-http",
+        "url": "https://mcp.airtable.com/mcp"
+      }
+    }
+  },
+  "discoveredServerName": "airtable:api",
+  "features": ["Discover bases and schemas", "Read and update permitted records", "Create bases and schema where the account permits", "Read interface-exposed data", "Inspect and edit supported automation drafts"],
+  "prerequisites": ["Airtable account and access to the desired bases or interfaces", "Internet connection", "Browser consent for the resources selected during OAuth", "Organization administrator approval where integration policies require it"],
+  "limitations": ["Access is limited by the user's Airtable permissions and authorized resources", "API quotas and base limits still apply; no additional Airtable MCP charge is currently documented", "New-base creation requires workspace Creator or Owner access", "Automation activation and Script actions require the Airtable UI", "Existing interface editing and interface filters have documented restrictions", "Installed does not mean authenticated or connected"],
+  "advancedAuth": {
+    "staticOAuth": "Organizations that disallow DCR can register and allowlist their own Airtable OAuth integration. Configure its client ID in a local OMP MCP server entry; the portable Agent Plugin format must not contain oauth fields.",
+    "pat": "Airtable also accepts a personal access token in Authorization: Bearer. Add a separate local HTTP server with the Ompra MCP wizard and a user-supplied header, using only the required scopes/resources. Do not publish the token or edit the shared package.",
+    "ompCaveat": "Standard plugin headers are literal. Airtable's generic example using ${AIRTABLE_PAT} is not an OMP-compatible secret substitution mechanism. Prefer OAuth. A locally entered PAT header is stored in local MCP configuration, not guaranteed to be in an operating-system credential vault."
+  },
+  "checks": {
+    "officialDocumentationReviewed": true,
+    "protectedResourceMetadataHttpStatus": 200,
+    "authorizationServerMetadataHttpStatus": 200,
+    "unauthenticatedInitializeHttpStatus": 401,
+    "unauthenticatedChallenge": "Bearer invalid_token; resource_metadata=https://mcp.airtable.com/.well-known/oauth-protected-resource",
+    "dynamicClientRegistrationAttempted": false,
+    "authenticatedToolsListed": false,
+    "accountDataAccessed": false,
+    "userCredentialsUsed": false,
+    "status": "Documentation, unauthenticated challenge, and advertised OAuth capability verified. End-user consent and authenticated tool execution remain untested."
+  },
+  "sources": [
+    "https://airtable.com/developers/agents/mcp/getting-started",
+    "https://airtable.com/developers/agents/mcp/other",
+    "https://support.airtable.com/articles/9897799762-using-the-airtable-mcp-server",
+    "https://mcp.airtable.com/.well-known/oauth-protected-resource",
+    "https://airtable.com/.well-known/oauth-authorization-server/oauth2/v1"
+  ]
+}

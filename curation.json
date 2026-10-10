@@ -1,17 +1,55 @@
 {
   "schemaVersion": 1,
-  "status": "draft",
+  "status": "partially-published",
   "checkedAt": "2026-10-10",
   "sections": [
-    { "id": "development", "titleRu": "Разработка" },
-    { "id": "productivity", "titleRu": "Работа с информацией" },
-    { "id": "communication", "titleRu": "Почта и общение" },
-    { "id": "projects", "titleRu": "Проекты и задачи" },
-    { "id": "research", "titleRu": "Поиск и исследования" },
-    { "id": "design", "titleRu": "Дизайн и схемы" },
-    { "id": "business", "titleRu": "Бизнес" }
+    {
+      "id": "development",
+      "titleRu": "Разработка"
+    },
+    {
+      "id": "productivity",
+      "titleRu": "Работа с информацией"
+    },
+    {
+      "id": "communication",
+      "titleRu": "Почта и общение"
+    },
+    {
+      "id": "projects",
+      "titleRu": "Проекты и задачи"
+    },
+    {
+      "id": "research",
+      "titleRu": "Поиск и исследования"
+    },
+    {
+      "id": "design",
+      "titleRu": "Дизайн и схемы"
+    },
+    {
+      "id": "business",
+      "titleRu": "Бизнес"
+    }
   ],
-  "featured": ["context7", "firecrawl", "github", "supabase", "notion", "linear", "atlassian", "sentry", "posthog", "render", "plane", "jotform"],
+  "featured": [
+    "context7",
+    "firecrawl",
+    "airtable",
+    "notion",
+    "linear",
+    "supabase",
+    "atlassian",
+    "sentry",
+    "plane",
+    "jotform",
+    "posthog",
+    "railway",
+    "stripe",
+    "exa",
+    "github",
+    "render"
+  ],
   "integrations": [
     {
       "id": "github",
@@ -19,11 +57,45 @@
       "sectionId": "development",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["api-key", "own-oauth-client"],
-      "research": { "file": "research/developer-tools.json", "id": "github" },
-      "blockersRu": ["Проверить подключение из Ompra с личным токеном и выбранными разрешениями.", "Для входа через браузер потребуется собственное OAuth-приложение Ompra; авторизацию другого клиента использовать нельзя."],
-      "sources": ["https://github.com/github/github-mcp-server", "https://github.com/github/github-mcp-server/blob/main/LICENSE"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "api-key",
+        "own-oauth-client"
+      ],
+      "research": {
+        "file": "research/developer-tools.json",
+        "id": "github"
+      },
+      "blockersRu": [
+        "После установки создать локальный User MCP override с точным именем github:api, HTTP endpoint из пакета и Authorization: Bearer с собственным PAT.",
+        "Авторизованное подключение и доступ к ресурсам аккаунта не проверены. Публичный пакет не содержит ключа; ${TOKEN} в его headers не разворачивается.",
+        "Удаление пакета не удаляет отдельный User override; его нужно убрать отдельно, чтобы инструменты больше не оставались доступными."
+      ],
+      "sources": [
+        "https://github.com/github/github-mcp-server",
+        "https://github.com/github/github-mcp-server/blob/main/LICENSE"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "github",
+        "version": "1.0.0",
+        "serverName": "github:api"
+      },
+      "catalogCardId": "ompra-starter/github",
+      "publishedSetup": "local-user-key-override",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://api.githubcopilot.com/mcp/",
+        "keylessToolsDiscoveryPassed": false,
+        "oauthDynamicRegistrationAdvertised": false,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "localUserOverrideFlowTested": true,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "supabase",
@@ -31,11 +103,44 @@
       "sectionId": "development",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "api-key"],
-      "research": { "file": "research/developer-tools.json", "id": "supabase" },
-      "blockersRu": ["Проверить OAuth или личный токен в Ompra, ограничение выбранным проектом и режим чтения.", "Проверить совместимость протокола и подтверждение операций записи."],
-      "sources": ["https://supabase.com/docs/guides/ai-tools/mcp", "https://github.com/supabase/mcp"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "oauth",
+        "api-key"
+      ],
+      "research": {
+        "file": "research/developer-tools.json",
+        "id": "supabase"
+      },
+      "blockersRu": [
+        "После установки открыть Settings → MCP → supabase:api → Reauthorize и дать согласие на доступ к выбранным ресурсам. Установка не означает подключение аккаунта.",
+        "DCR объявлен в публичных метаданных; полный вход, обновление токенов и вызовы инструментов с аккаунтом не проверены.",
+        "Пакет использует read_only=true; выбор конкретного проекта и фактические права требуется проверить при входе."
+      ],
+      "sources": [
+        "https://supabase.com/docs/guides/ai-tools/mcp",
+        "https://github.com/supabase/mcp"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "supabase",
+        "version": "1.0.0",
+        "serverName": "supabase:api"
+      },
+      "catalogCardId": "ompra-starter/supabase",
+      "publishedSetup": "oauth",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://mcp.supabase.com/mcp?read_only=true",
+        "keylessToolsDiscoveryPassed": false,
+        "oauthDynamicRegistrationAdvertised": true,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "vercel",
@@ -43,11 +148,24 @@
       "sectionId": "development",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "host-registration"],
-      "research": { "file": "research/developer-tools.json", "id": "vercel" },
-      "blockersRu": ["Vercel допускает только проверенные и одобренные клиенты; доступ Ompra не подтверждён.", "После одобрения потребуется проверить OAuth и доступные инструменты."],
-      "sources": ["https://vercel.com/docs/agent-resources/vercel-mcp", "https://vercel.com/docs/agent-resources/vercel-mcp/tools"]
+      "publicationStatus": "planned",
+      "setup": [
+        "oauth",
+        "host-registration"
+      ],
+      "research": {
+        "file": "research/developer-tools.json",
+        "id": "vercel"
+      },
+      "blockersRu": [
+        "Vercel допускает только проверенные и одобренные клиенты; доступ Ompra не подтверждён.",
+        "После одобрения потребуется проверить OAuth и доступные инструменты."
+      ],
+      "sources": [
+        "https://vercel.com/docs/agent-resources/vercel-mcp",
+        "https://vercel.com/docs/agent-resources/vercel-mcp/tools"
+      ],
+      "installable": false
     },
     {
       "id": "render",
@@ -55,11 +173,44 @@
       "sectionId": "development",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["api-key", "oauth"],
-      "research": { "file": "research/developer-tools.json", "id": "render" },
-      "blockersRu": ["Проверить подключение с личным API-ключом, выбор рабочего пространства и права на ресурсы.", "Вход через OAuth потребует проверки собственного клиента Ompra; некоторые действия открывают настройки Render вместо изменения ресурса."],
-      "sources": ["https://render.com/docs/mcp-server", "https://github.com/render-oss/render-mcp-server"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "api-key",
+        "oauth"
+      ],
+      "research": {
+        "file": "research/developer-tools.json",
+        "id": "render"
+      },
+      "blockersRu": [
+        "После установки создать локальный User MCP override с точным именем render:api, HTTP endpoint из пакета и Authorization: Bearer с собственным API-ключом.",
+        "Авторизованное подключение и доступ к ресурсам аккаунта не проверены. Публичный пакет не содержит ключа; ${TOKEN} в его headers не разворачивается.",
+        "Удаление пакета не удаляет отдельный User override; его нужно убрать отдельно, чтобы инструменты больше не оставались доступными."
+      ],
+      "sources": [
+        "https://render.com/docs/mcp-server",
+        "https://github.com/render-oss/render-mcp-server"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "render",
+        "version": "1.0.0",
+        "serverName": "render:api"
+      },
+      "catalogCardId": "ompra-starter/render",
+      "publishedSetup": "local-user-key-override",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://mcp.render.com/mcp",
+        "keylessToolsDiscoveryPassed": false,
+        "oauthDynamicRegistrationAdvertised": false,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "railway",
@@ -67,11 +218,43 @@
       "sectionId": "development",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "local-runtime"],
-      "research": { "file": "research/developer-tools.json", "id": "railway" },
-      "blockersRu": ["Проверить удалённый OAuth или актуальный Railway CLI с пользовательским входом.", "Для варианта с CLI проверить сохранение авторизации в переносимом профиле; старый отдельный MCP-пакет устарел."],
-      "sources": ["https://docs.railway.com/ai/mcp-server", "https://github.com/railwayapp/railway-mcp-server"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "oauth",
+        "local-runtime"
+      ],
+      "research": {
+        "file": "research/developer-tools.json",
+        "id": "railway"
+      },
+      "blockersRu": [
+        "После установки открыть Settings → MCP → railway:api → Reauthorize и дать согласие на доступ к выбранным ресурсам. Установка не означает подключение аккаунта.",
+        "DCR объявлен в публичных метаданных; полный вход, обновление токенов и вызовы инструментов с аккаунтом не проверены."
+      ],
+      "sources": [
+        "https://docs.railway.com/ai/mcp-server",
+        "https://github.com/railwayapp/railway-mcp-server"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "railway",
+        "version": "1.0.0",
+        "serverName": "railway:api"
+      },
+      "catalogCardId": "ompra-starter/railway",
+      "publishedSetup": "oauth",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://mcp.railway.com",
+        "keylessToolsDiscoveryPassed": false,
+        "oauthDynamicRegistrationAdvertised": true,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "figma",
@@ -79,11 +262,27 @@
       "sectionId": "design",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "host-registration", "local-runtime"],
-      "research": { "file": "research/developer-tools.json", "id": "figma" },
-      "blockersRu": ["Для удалённого сервера Figma требуется одобрение клиента; Ompra в списке не проверена.", "Альтернативное локальное подключение требует установленного Figma Desktop и отдельной проверки в Ompra.", "Доступность инструментов зависит от плана и места пользователя в Figma."],
-      "sources": ["https://developers.figma.com/docs/figma-mcp-server/", "https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/", "https://developers.figma.com/docs/figma-mcp-server/local-server-installation/"]
+      "publicationStatus": "planned",
+      "setup": [
+        "oauth",
+        "host-registration",
+        "local-runtime"
+      ],
+      "research": {
+        "file": "research/developer-tools.json",
+        "id": "figma"
+      },
+      "blockersRu": [
+        "Для удалённого сервера Figma требуется одобрение клиента; Ompra в списке не проверена.",
+        "Альтернативное локальное подключение требует установленного Figma Desktop и отдельной проверки в Ompra.",
+        "Доступность инструментов зависит от плана и места пользователя в Figma."
+      ],
+      "sources": [
+        "https://developers.figma.com/docs/figma-mcp-server/",
+        "https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/",
+        "https://developers.figma.com/docs/figma-mcp-server/local-server-installation/"
+      ],
+      "installable": false
     },
     {
       "id": "canva",
@@ -91,11 +290,27 @@
       "sectionId": "design",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "own-oauth-client", "host-registration"],
-      "research": { "file": "research/developer-tools.json", "id": "canva" },
-      "blockersRu": ["Зарегистрировать собственный OAuth-клиент или получить одобрение Canva для клиента без общего секрета.", "Проверить безопасную авторизацию переносимого приложения; общий конфиденциальный секрет нельзя встраивать в EXE.", "Некоторые операции с шаблонами и фирменным стилем требуют платного плана."],
-      "sources": ["https://www.canva.dev/docs/apps/mcp/", "https://www.canva.dev/docs/apps/mcp/access/", "https://www.canva.dev/docs/apps/quickstart/"]
+      "publicationStatus": "planned",
+      "setup": [
+        "oauth",
+        "own-oauth-client",
+        "host-registration"
+      ],
+      "research": {
+        "file": "research/developer-tools.json",
+        "id": "canva"
+      },
+      "blockersRu": [
+        "Зарегистрировать собственный OAuth-клиент или получить одобрение Canva для клиента без общего секрета.",
+        "Проверить безопасную авторизацию переносимого приложения; общий конфиденциальный секрет нельзя встраивать в EXE.",
+        "Некоторые операции с шаблонами и фирменным стилем требуют платного плана."
+      ],
+      "sources": [
+        "https://www.canva.dev/docs/apps/mcp/",
+        "https://www.canva.dev/docs/apps/mcp/access/",
+        "https://www.canva.dev/docs/apps/quickstart/"
+      ],
+      "installable": false
     },
     {
       "id": "tldraw",
@@ -103,11 +318,24 @@
       "sectionId": "design",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["mcp-apps"],
-      "research": { "file": "research/developer-tools.json", "id": "tldraw" },
-      "blockersRu": ["Реализовать и проверить отображение MCP Apps, жизненный цикл виджета и обратные вызовы интерактивного холста.", "Лицензия SDK tldraw отличается от MIT; самостоятельное включение SDK в продукт требует отдельной проверки условий."],
-      "sources": ["https://tldraw.dev/blog/tldraw-mcp-app", "https://github.com/tldraw/tldraw/blob/main/apps/mcp-app/README.md", "https://github.com/tldraw/tldraw/blob/main/LICENSE.md"]
+      "publicationStatus": "planned",
+      "setup": [
+        "mcp-apps"
+      ],
+      "research": {
+        "file": "research/developer-tools.json",
+        "id": "tldraw"
+      },
+      "blockersRu": [
+        "Реализовать и проверить отображение MCP Apps, жизненный цикл виджета и обратные вызовы интерактивного холста.",
+        "Лицензия SDK tldraw отличается от MIT; самостоятельное включение SDK в продукт требует отдельной проверки условий."
+      ],
+      "sources": [
+        "https://tldraw.dev/blog/tldraw-mcp-app",
+        "https://github.com/tldraw/tldraw/blob/main/apps/mcp-app/README.md",
+        "https://github.com/tldraw/tldraw/blob/main/LICENSE.md"
+      ],
+      "installable": false
     },
     {
       "id": "firecrawl",
@@ -115,11 +343,46 @@
       "sectionId": "research",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["keyless", "oauth", "api-key"],
-      "research": { "file": "research/developer-tools.json", "id": "firecrawl" },
-      "blockersRu": ["Проверить поиск, извлечение страниц и разбор документов без ключа из Ompra.", "Расширенные инструменты и повышенные лимиты требуют отдельного входа или API-ключа."],
-      "sources": ["https://docs.firecrawl.dev/mcp-server", "https://docs.firecrawl.dev/mcp-server/keyless", "https://github.com/firecrawl/firecrawl-mcp-server"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "keyless",
+        "oauth",
+        "api-key"
+      ],
+      "research": {
+        "file": "research/developer-tools.json",
+        "id": "firecrawl"
+      },
+      "blockersRu": [
+        "Проверены initialize и tools/list без ключа; вызов инструментов и доступность в пределах текущих квот не заявляются как проверенные.",
+        "Для ограниченного режима действуют лимиты внешнего сервиса; расширенные функции могут требовать отдельной авторизации."
+      ],
+      "sources": [
+        "https://docs.firecrawl.dev/mcp-server",
+        "https://docs.firecrawl.dev/mcp-server/keyless",
+        "https://github.com/firecrawl/firecrawl-mcp-server"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "firecrawl",
+        "version": "1.0.0",
+        "serverName": "firecrawl:api"
+      },
+      "catalogCardId": "ompra-starter/firecrawl",
+      "publishedSetup": "keyless",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://mcp.firecrawl.dev/v2/mcp",
+        "keylessToolsDiscoveryPassed": true,
+        "oauthDynamicRegistrationAdvertised": false,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "nativeMcpTestToolCount": 3,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "exa",
@@ -127,11 +390,46 @@
       "sectionId": "research",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["keyless", "oauth", "api-key"],
-      "research": { "file": "research/developer-tools.json", "id": "exa" },
-      "blockersRu": ["Проверить поиск и чтение страниц без ключа из Ompra.", "Проверить стандартную фильтрацию инструментов OMP, которая может скрывать поиск Exa.", "Многошаговое исследование требует пользовательской авторизации и учитывается в лимитах аккаунта."],
-      "sources": ["https://exa.ai/docs/get-started/exa-mcp", "https://github.com/exa-labs/exa-mcp-server/blob/main/package.json"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "keyless",
+        "oauth",
+        "api-key"
+      ],
+      "research": {
+        "file": "research/developer-tools.json",
+        "id": "exa"
+      },
+      "blockersRu": [
+        "Проверены initialize и tools/list без ключа; вызов инструментов и доступность в пределах текущих квот не заявляются как проверенные.",
+        "Для ограниченного режима действуют лимиты внешнего сервиса; расширенные функции могут требовать отдельной авторизации.",
+        "В опубликованном URL явно выбраны web_search_exa и web_fetch_exa, чтобы OMP не отфильтровал сервер как дублирование только встроенного поиска."
+      ],
+      "sources": [
+        "https://exa.ai/docs/get-started/exa-mcp",
+        "https://github.com/exa-labs/exa-mcp-server/blob/main/package.json"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "exa",
+        "version": "1.0.0",
+        "serverName": "exa:api"
+      },
+      "catalogCardId": "ompra-starter/exa",
+      "publishedSetup": "keyless",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://mcp.exa.ai/mcp?tools=web_search_exa,web_fetch_exa",
+        "keylessToolsDiscoveryPassed": true,
+        "oauthDynamicRegistrationAdvertised": true,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "nativeMcpTestToolCount": 2,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "superpowers",
@@ -139,11 +437,25 @@
       "sectionId": "development",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["adapter"],
-      "research": { "file": "research/developer-tools.json", "id": "superpowers" },
-      "blockersRu": ["Проверить совместимость пакета Pi с OMP и адаптировать начальную загрузку навыков.", "Проверить доступность инструментов подагентов и задач; сами тексты навыков их не реализуют.", "При распространении сохранить уведомления лицензии MIT."],
-      "sources": ["https://github.com/obra/superpowers", "https://github.com/obra/superpowers/blob/main/package.json", "https://github.com/obra/superpowers/blob/main/LICENSE"]
+      "publicationStatus": "planned",
+      "setup": [
+        "adapter"
+      ],
+      "research": {
+        "file": "research/developer-tools.json",
+        "id": "superpowers"
+      },
+      "blockersRu": [
+        "Проверить совместимость пакета Pi с OMP и адаптировать начальную загрузку навыков.",
+        "Проверить доступность инструментов подагентов и задач; сами тексты навыков их не реализуют.",
+        "При распространении сохранить уведомления лицензии MIT."
+      ],
+      "sources": [
+        "https://github.com/obra/superpowers",
+        "https://github.com/obra/superpowers/blob/main/package.json",
+        "https://github.com/obra/superpowers/blob/main/LICENSE"
+      ],
+      "installable": false
     },
     {
       "id": "playwright",
@@ -151,11 +463,24 @@
       "sectionId": "development",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["local-runtime"],
-      "research": { "file": "research/developer-tools.json", "id": "playwright" },
-      "blockersRu": ["Проверить установку Node, выбранной опубликованной версии сервера и браузера.", "Проверить взаимодействие со встроенным браузером OMP и фильтрацию дублирующих инструментов.", "Проверить отдельный переносимый профиль браузера и каталог его файлов; не подключать личный браузер автоматически."],
-      "sources": ["https://github.com/microsoft/playwright-mcp", "https://github.com/microsoft/playwright-mcp/blob/main/package.json"]
+      "publicationStatus": "planned",
+      "setup": [
+        "local-runtime"
+      ],
+      "research": {
+        "file": "research/developer-tools.json",
+        "id": "playwright"
+      },
+      "blockersRu": [
+        "Проверить установку Node, выбранной опубликованной версии сервера и браузера.",
+        "Проверить взаимодействие со встроенным браузером OMP и фильтрацию дублирующих инструментов.",
+        "Проверить отдельный переносимый профиль браузера и каталог его файлов; не подключать личный браузер автоматически."
+      ],
+      "sources": [
+        "https://github.com/microsoft/playwright-mcp",
+        "https://github.com/microsoft/playwright-mcp/blob/main/package.json"
+      ],
+      "installable": false
     },
     {
       "id": "context7",
@@ -163,11 +488,45 @@
       "sectionId": "development",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["keyless", "api-key"],
-      "research": { "file": "research/developer-tools.json", "id": "context7" },
-      "blockersRu": ["Проверить удалённое подключение без ключа и получение документации нужной версии библиотеки.", "Базовый режим имеет ограничения; повышенные лимиты требуют пользовательского API-ключа."],
-      "sources": ["https://github.com/upstash/context7/blob/master/packages/mcp/README.md", "https://github.com/upstash/context7/blob/master/packages/mcp/package.json"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "keyless",
+        "api-key"
+      ],
+      "research": {
+        "file": "research/developer-tools.json",
+        "id": "context7"
+      },
+      "blockersRu": [
+        "Проверены initialize и tools/list без ключа; в отдельной native проверке выполнен один публичный поиск библиотеки React. Полный сценарий с аккаунтом, лимиты и другие вызовы инструментов не заявляются как проверенные.",
+        "Для ограниченного режима действуют лимиты внешнего сервиса; расширенные функции могут требовать отдельной авторизации."
+      ],
+      "sources": [
+        "https://github.com/upstash/context7/blob/master/packages/mcp/README.md",
+        "https://github.com/upstash/context7/blob/master/packages/mcp/package.json"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "context7",
+        "version": "1.0.0",
+        "serverName": "context7:api"
+      },
+      "catalogCardId": "ompra-starter/context7",
+      "publishedSetup": "keyless",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://mcp.context7.com/mcp",
+        "keylessToolsDiscoveryPassed": true,
+        "oauthDynamicRegistrationAdvertised": true,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "nativeMcpTestToolCount": 2,
+        "nativePublicReadToolCallTested": true,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "google-workspace-community",
@@ -175,11 +534,76 @@
       "sectionId": "productivity",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "own-oauth-client", "local-runtime"],
-      "research": { "file": "research/productivity.json", "id": "google-workspace-community" },
-      "blockersRu": ["Подключение разработано сообществом, а не Google; зарегистрировать собственный OAuth-клиент и включить выбранные Google API.", "Проверить Python, uv и согласие только на нужные разрешения.", "Проверить хранение токенов и обновление авторизации в переносимом профиле Ompra."],
-      "sources": ["https://github.com/taylorwilsdon/google_workspace_mcp", "https://raw.githubusercontent.com/taylorwilsdon/google_workspace_mcp/main/pyproject.toml", "https://workspacemcp.com/quick-start"]
+      "publicationStatus": "planned",
+      "setup": [
+        "oauth",
+        "own-oauth-client",
+        "local-runtime"
+      ],
+      "research": {
+        "file": "research/productivity.json",
+        "id": "google-workspace-community"
+      },
+      "blockersRu": [
+        "Подключение разработано сообществом, а не Google; зарегистрировать собственный OAuth-клиент и включить выбранные Google API.",
+        "Проверить Python, uv и согласие только на нужные разрешения.",
+        "Проверить хранение токенов и обновление авторизации в переносимом профиле Ompra."
+      ],
+      "sources": [
+        "https://github.com/taylorwilsdon/google_workspace_mcp",
+        "https://raw.githubusercontent.com/taylorwilsdon/google_workspace_mcp/main/pyproject.toml",
+        "https://workspacemcp.com/quick-start"
+      ],
+      "installable": false
+    },
+    {
+      "id": "airtable",
+      "name": "Airtable",
+      "sectionId": "productivity",
+      "evidence": "documentation-verified",
+      "executionTested": false,
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "oauth",
+        "api-key",
+        "own-oauth-client"
+      ],
+      "research": {
+        "file": "research/airtable.json",
+        "id": "airtable"
+      },
+      "blockersRu": [
+        "После установки открыть Settings → MCP → airtable:api → Reauthorize и дать согласие на доступ к выбранным ресурсам. Установка не означает подключение аккаунта.",
+        "DCR объявлен в публичных метаданных; полный вход, обновление токенов и вызовы инструментов с аккаунтом не проверены.",
+        "Действуют права пользователя Airtable и политика организации. Для организаций, запрещающих DCR, нужен собственный одобренный OAuth-клиент."
+      ],
+      "sources": [
+        "https://airtable.com/developers/agents/mcp/getting-started",
+        "https://airtable.com/developers/agents/mcp/other",
+        "https://support.airtable.com/articles/9897799762-using-the-airtable-mcp-server",
+        "https://mcp.airtable.com/.well-known/oauth-protected-resource",
+        "https://airtable.com/.well-known/oauth-authorization-server/oauth2/v1"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "airtable",
+        "version": "1.0.0",
+        "serverName": "airtable:api"
+      },
+      "catalogCardId": "ompra-starter/airtable",
+      "publishedSetup": "oauth",
+      "verification": {
+        "file": "research/airtable.json",
+        "endpoint": "https://mcp.airtable.com/mcp",
+        "keylessToolsDiscoveryPassed": false,
+        "oauthDynamicRegistrationAdvertised": true,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "notion",
@@ -187,11 +611,42 @@
       "sectionId": "productivity",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth"],
-      "research": { "file": "research/productivity.json", "id": "notion" },
-      "blockersRu": ["Проверить OAuth, обновление токенов и ограничения рабочего пространства в Ompra.", "Обычный токен интеграции Notion не заменяет вход в официальный размещённый MCP."],
-      "sources": ["https://developers.notion.com/guides/mcp/overview", "https://developers.notion.com/guides/mcp/build-mcp-client"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "oauth"
+      ],
+      "research": {
+        "file": "research/productivity.json",
+        "id": "notion"
+      },
+      "blockersRu": [
+        "После установки открыть Settings → MCP → notion:api → Reauthorize и дать согласие на доступ к выбранным ресурсам. Установка не означает подключение аккаунта.",
+        "DCR объявлен в публичных метаданных; полный вход, обновление токенов и вызовы инструментов с аккаунтом не проверены."
+      ],
+      "sources": [
+        "https://developers.notion.com/guides/mcp/overview",
+        "https://developers.notion.com/guides/mcp/build-mcp-client"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "notion",
+        "version": "1.0.0",
+        "serverName": "notion:api"
+      },
+      "catalogCardId": "ompra-starter/notion",
+      "publishedSetup": "oauth",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://mcp.notion.com/mcp",
+        "keylessToolsDiscoveryPassed": false,
+        "oauthDynamicRegistrationAdvertised": true,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "linear",
@@ -199,11 +654,43 @@
       "sectionId": "projects",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "api-key"],
-      "research": { "file": "research/productivity.json", "id": "linear" },
-      "blockersRu": ["Проверить OAuth или личный API-ключ и отдельную авторизацию каждого рабочего пространства.", "Проверить режим чтения и подтверждение изменений задач."],
-      "sources": ["https://linear.app/docs/mcp", "https://linear.app/developers/oauth-2-0-authentication"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "oauth",
+        "api-key"
+      ],
+      "research": {
+        "file": "research/productivity.json",
+        "id": "linear"
+      },
+      "blockersRu": [
+        "После установки открыть Settings → MCP → linear:api → Reauthorize и дать согласие на доступ к выбранным ресурсам. Установка не означает подключение аккаунта.",
+        "DCR объявлен в публичных метаданных; полный вход, обновление токенов и вызовы инструментов с аккаунтом не проверены."
+      ],
+      "sources": [
+        "https://linear.app/docs/mcp",
+        "https://linear.app/developers/oauth-2-0-authentication"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "linear",
+        "version": "1.0.0",
+        "serverName": "linear:api"
+      },
+      "catalogCardId": "ompra-starter/linear",
+      "publishedSetup": "oauth",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://mcp.linear.app/mcp",
+        "keylessToolsDiscoveryPassed": false,
+        "oauthDynamicRegistrationAdvertised": true,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "atlassian",
@@ -211,11 +698,43 @@
       "sectionId": "projects",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "api-key"],
-      "research": { "file": "research/productivity.json", "id": "atlassian" },
-      "blockersRu": ["Проверить актуальное подключение Atlassian Cloud и разрешение администратора для клиента.", "Проверить OAuth или документированный вариант с API-токеном; расширенный поиск может расходовать кредиты Rovo.", "Поддержка Jira Server и Data Center этим подключением не подтверждена."],
-      "sources": ["https://atlassian.github.io/atlassian-mcp-server/", "https://support.atlassian.com/atlassian-ai-gateway/docs/get-started-with-the-atlassian-remote-mcp-server/"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "oauth",
+        "api-key"
+      ],
+      "research": {
+        "file": "research/productivity.json",
+        "id": "atlassian"
+      },
+      "blockersRu": [
+        "После установки открыть Settings → MCP → atlassian:api → Reauthorize и дать согласие на доступ к выбранным ресурсам. Установка не означает подключение аккаунта.",
+        "DCR объявлен в публичных метаданных; полный вход, обновление токенов и вызовы инструментов с аккаунтом не проверены."
+      ],
+      "sources": [
+        "https://atlassian.github.io/atlassian-mcp-server/",
+        "https://support.atlassian.com/atlassian-ai-gateway/docs/get-started-with-the-atlassian-remote-mcp-server/"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "atlassian",
+        "version": "1.0.0",
+        "serverName": "atlassian:api"
+      },
+      "catalogCardId": "ompra-starter/atlassian",
+      "publishedSetup": "oauth",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://mcp.atlassian.com/v2/mcp",
+        "keylessToolsDiscoveryPassed": false,
+        "oauthDynamicRegistrationAdvertised": true,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "stripe",
@@ -223,11 +742,44 @@
       "sectionId": "business",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "api-key"],
-      "research": { "file": "research/productivity.json", "id": "stripe" },
-      "blockersRu": ["Проверить подключение к выбранной среде Stripe и ограниченные разрешения.", "Проверить совместимость Agent API key с изменениями требований Stripe от 31 октября 2026 года.", "Финансовые изменения должны требовать явного подтверждения пользователя."],
-      "sources": ["https://docs.stripe.com/mcp", "https://docs.stripe.com/keys#agent-keys"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "oauth",
+        "api-key"
+      ],
+      "research": {
+        "file": "research/productivity.json",
+        "id": "stripe"
+      },
+      "blockersRu": [
+        "После установки открыть Settings → MCP → stripe:api → Reauthorize и дать согласие на доступ к выбранным ресурсам. Установка не означает подключение аккаунта.",
+        "DCR объявлен в публичных метаданных; полный вход, обновление токенов и вызовы инструментов с аккаунтом не проверены.",
+        "Для альтернативного входа по ключу необходимо учитывать требование Agent tag с 31.10.2026; опубликованный wrapper использует OAuth."
+      ],
+      "sources": [
+        "https://docs.stripe.com/mcp",
+        "https://docs.stripe.com/keys#agent-keys"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "stripe",
+        "version": "1.0.0",
+        "serverName": "stripe:api"
+      },
+      "catalogCardId": "ompra-starter/stripe",
+      "publishedSetup": "oauth",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://mcp.stripe.com",
+        "keylessToolsDiscoveryPassed": false,
+        "oauthDynamicRegistrationAdvertised": true,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "plane",
@@ -235,11 +787,44 @@
       "sectionId": "projects",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "api-key", "local-runtime"],
-      "research": { "file": "research/productivity.json", "id": "plane" },
-      "blockersRu": ["Проверить OAuth или личный токен с выбранным рабочим пространством.", "Для частной собственной установки проверить локальный сервер; размещённый сервис к ней не подключается.", "Доступность действий зависит от роли и плана Plane."],
-      "sources": ["https://developers.plane.so/dev-tools/mcp-server", "https://raw.githubusercontent.com/makeplane/plane-mcp-server/main/pyproject.toml"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "oauth",
+        "api-key",
+        "local-runtime"
+      ],
+      "research": {
+        "file": "research/productivity.json",
+        "id": "plane"
+      },
+      "blockersRu": [
+        "После установки открыть Settings → MCP → plane:api → Reauthorize и дать согласие на доступ к выбранным ресурсам. Установка не означает подключение аккаунта.",
+        "DCR объявлен в публичных метаданных; полный вход, обновление токенов и вызовы инструментов с аккаунтом не проверены."
+      ],
+      "sources": [
+        "https://developers.plane.so/dev-tools/mcp-server",
+        "https://raw.githubusercontent.com/makeplane/plane-mcp-server/main/pyproject.toml"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "plane",
+        "version": "1.0.0",
+        "serverName": "plane:api"
+      },
+      "catalogCardId": "ompra-starter/plane",
+      "publishedSetup": "oauth",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://mcp.plane.so/http/mcp",
+        "keylessToolsDiscoveryPassed": false,
+        "oauthDynamicRegistrationAdvertised": true,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "jotform",
@@ -247,11 +832,43 @@
       "sectionId": "business",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth"],
-      "research": { "file": "research/productivity.json", "id": "jotform" },
-      "blockersRu": ["Проверить OAuth и доступ к формам пользователя из Ompra; вход по API-ключу не поддерживается.", "Для встроенного интерактивного предпросмотра формы нужна отдельная реализация MCP Apps.", "Проверить обработку фонового создания формы и ограничений плана."],
-      "sources": ["https://www.jotform.com/mcp/", "https://www.jotform.com/developers/mcp/"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "oauth"
+      ],
+      "research": {
+        "file": "research/productivity.json",
+        "id": "jotform"
+      },
+      "blockersRu": [
+        "После установки открыть Settings → MCP → jotform:api → Reauthorize и дать согласие на доступ к выбранным ресурсам. Установка не означает подключение аккаунта.",
+        "DCR объявлен в публичных метаданных; полный вход, обновление токенов и вызовы инструментов с аккаунтом не проверены.",
+        "Обычный API-ключ не заменяет OAuth. Интерактивный MCP Apps preview не входит в этот wrapper."
+      ],
+      "sources": [
+        "https://www.jotform.com/mcp/",
+        "https://www.jotform.com/developers/mcp/"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "jotform",
+        "version": "1.0.0",
+        "serverName": "jotform:api"
+      },
+      "catalogCardId": "ompra-starter/jotform",
+      "publishedSetup": "oauth",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://mcp.jotform.com",
+        "keylessToolsDiscoveryPassed": false,
+        "oauthDynamicRegistrationAdvertised": true,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "slack",
@@ -259,11 +876,25 @@
       "sectionId": "communication",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "own-oauth-client", "host-registration"],
-      "research": { "file": "research/productivity.json", "id": "slack" },
-      "blockersRu": ["Официальный MCP требует внутреннего или опубликованного в Slack Marketplace приложения; доступ незарегистрированного Ompra не подтверждён.", "Проверить собственный OAuth-клиент, разрешения администратора и минимальные пользовательские права.", "Отправка сообщений требует отдельного подтверждения пользователя."],
-      "sources": ["https://docs.slack.dev/ai/slack-mcp-server/"]
+      "publicationStatus": "planned",
+      "setup": [
+        "oauth",
+        "own-oauth-client",
+        "host-registration"
+      ],
+      "research": {
+        "file": "research/productivity.json",
+        "id": "slack"
+      },
+      "blockersRu": [
+        "Официальный MCP требует внутреннего или опубликованного в Slack Marketplace приложения; доступ незарегистрированного Ompra не подтверждён.",
+        "Проверить собственный OAuth-клиент, разрешения администратора и минимальные пользовательские права.",
+        "Отправка сообщений требует отдельного подтверждения пользователя."
+      ],
+      "sources": [
+        "https://docs.slack.dev/ai/slack-mcp-server/"
+      ],
+      "installable": false
     },
     {
       "id": "asana",
@@ -271,11 +902,24 @@
       "sectionId": "projects",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "own-oauth-client"],
-      "research": { "file": "research/productivity.json", "id": "asana" },
-      "blockersRu": ["Зарегистрировать собственное MCP OAuth-приложение и проверить обратный адрес, вход и разрешение рабочего пространства.", "Динамическая регистрация клиентов не поддерживается; обычный API-токен не является подтверждённой заменой входа."],
-      "sources": ["https://developers.asana.com/docs/using-asanas-mcp-server", "https://developers.asana.com/docs/integrating-with-asanas-mcp-server"]
+      "publicationStatus": "planned",
+      "setup": [
+        "oauth",
+        "own-oauth-client"
+      ],
+      "research": {
+        "file": "research/productivity.json",
+        "id": "asana"
+      },
+      "blockersRu": [
+        "Зарегистрировать собственное MCP OAuth-приложение и проверить обратный адрес, вход и разрешение рабочего пространства.",
+        "Динамическая регистрация клиентов не поддерживается; обычный API-токен не является подтверждённой заменой входа."
+      ],
+      "sources": [
+        "https://developers.asana.com/docs/using-asanas-mcp-server",
+        "https://developers.asana.com/docs/integrating-with-asanas-mcp-server"
+      ],
+      "installable": false
     },
     {
       "id": "hubspot",
@@ -283,11 +927,25 @@
       "sectionId": "business",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "own-oauth-client"],
-      "research": { "file": "research/productivity.json", "id": "hubspot" },
-      "blockersRu": ["Создать собственный MCP-коннектор HubSpot и проверить OAuth с PKCE и зарегистрированным обратным адресом.", "Проверить доступные инструменты после входа; операции CRM зависят от подписки и прав пользователя.", "Удалённый CRM MCP отличается от локального инструмента разработки HubSpot."],
-      "sources": ["https://developers.hubspot.com/docs/apps/developer-platform/build-apps/integrate-with-the-remote-hubspot-mcp-server", "https://developers.hubspot.com/changelog/fall-2026-spotlight"]
+      "publicationStatus": "planned",
+      "setup": [
+        "oauth",
+        "own-oauth-client"
+      ],
+      "research": {
+        "file": "research/productivity.json",
+        "id": "hubspot"
+      },
+      "blockersRu": [
+        "Создать собственный MCP-коннектор HubSpot и проверить OAuth с PKCE и зарегистрированным обратным адресом.",
+        "Проверить доступные инструменты после входа; операции CRM зависят от подписки и прав пользователя.",
+        "Удалённый CRM MCP отличается от локального инструмента разработки HubSpot."
+      ],
+      "sources": [
+        "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/integrate-with-the-remote-hubspot-mcp-server",
+        "https://developers.hubspot.com/changelog/fall-2026-spotlight"
+      ],
+      "installable": false
     },
     {
       "id": "dropbox",
@@ -295,11 +953,25 @@
       "sectionId": "productivity",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "own-oauth-client", "host-registration"],
-      "research": { "file": "research/productivity.json", "id": "dropbox" },
-      "blockersRu": ["Автоматическая регистрация разрешена доверенным клиентам; Ompra требует собственного приложения Dropbox или одобрения провайдера.", "Проверить права команды и ограничения чтения содержимого файлов.", "Поддержка Dropbox Paper в Ompra не подтверждена."],
-      "sources": ["https://help.dropbox.com/integrations/connect-dropbox-mcp-server"]
+      "publicationStatus": "planned",
+      "setup": [
+        "oauth",
+        "own-oauth-client",
+        "host-registration"
+      ],
+      "research": {
+        "file": "research/productivity.json",
+        "id": "dropbox"
+      },
+      "blockersRu": [
+        "Автоматическая регистрация разрешена доверенным клиентам; Ompra требует собственного приложения Dropbox или одобрения провайдера.",
+        "Проверить права команды и ограничения чтения содержимого файлов.",
+        "Поддержка Dropbox Paper в Ompra не подтверждена."
+      ],
+      "sources": [
+        "https://help.dropbox.com/integrations/connect-dropbox-mcp-server"
+      ],
+      "installable": false
     },
     {
       "id": "microsoft-work-iq",
@@ -307,11 +979,27 @@
       "sectionId": "communication",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth", "own-oauth-client", "host-registration"],
-      "research": { "file": "research/productivity.json", "id": "microsoft-work-iq" },
-      "blockersRu": ["Требуются корпоративная среда Microsoft 365, согласие администратора и подходящая настройка лицензирования или оплаты.", "Проверить регистрацию клиента в Entra и делегированную авторизацию пользователя.", "Поддержка личных аккаунтов Outlook.com не подтверждена."],
-      "sources": ["https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/overview", "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/quickstart/github-copilot-cli", "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/work-iq"]
+      "publicationStatus": "planned",
+      "setup": [
+        "oauth",
+        "own-oauth-client",
+        "host-registration"
+      ],
+      "research": {
+        "file": "research/productivity.json",
+        "id": "microsoft-work-iq"
+      },
+      "blockersRu": [
+        "Требуются корпоративная среда Microsoft 365, согласие администратора и подходящая настройка лицензирования или оплаты.",
+        "Проверить регистрацию клиента в Entra и делегированную авторизацию пользователя.",
+        "Поддержка личных аккаунтов Outlook.com не подтверждена."
+      ],
+      "sources": [
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/overview",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/quickstart/github-copilot-cli",
+        "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/work-iq"
+      ],
+      "installable": false
     },
     {
       "id": "shopify-dev",
@@ -319,11 +1007,23 @@
       "sectionId": "development",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["keyless", "local-runtime"],
-      "research": { "file": "research/productivity.json", "id": "shopify-dev" },
-      "blockersRu": ["Проверить локальную среду, опубликованную версию MCP-пакета и его лицензию перед распространением кода.", "Инструменты предназначены для разработки и документации Shopify; управление товарами и заказами магазина не заявляется."],
-      "sources": ["https://shopify.dev/docs/apps/build/ai-toolkit"]
+      "publicationStatus": "planned",
+      "setup": [
+        "keyless",
+        "local-runtime"
+      ],
+      "research": {
+        "file": "research/productivity.json",
+        "id": "shopify-dev"
+      },
+      "blockersRu": [
+        "Проверить локальную среду, опубликованную версию MCP-пакета и его лицензию перед распространением кода.",
+        "Инструменты предназначены для разработки и документации Shopify; управление товарами и заказами магазина не заявляется."
+      ],
+      "sources": [
+        "https://shopify.dev/docs/apps/build/ai-toolkit"
+      ],
+      "installable": false
     },
     {
       "id": "sentry",
@@ -331,11 +1031,41 @@
       "sectionId": "business",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["oauth"],
-      "research": { "file": "research/observability.json", "id": "sentry" },
-      "blockersRu": ["Проверить OAuth из Ompra и доступ к выбранной организации и проектам.", "Проверить доступные инструменты и ограничения аккаунта; результаты диагностики могут содержать данные приложения."],
-      "sources": ["https://mcp.sentry.dev/"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "oauth"
+      ],
+      "research": {
+        "file": "research/observability.json",
+        "id": "sentry"
+      },
+      "blockersRu": [
+        "После установки открыть Settings → MCP → sentry:api → Reauthorize и дать согласие на доступ к выбранным ресурсам. Установка не означает подключение аккаунта.",
+        "DCR объявлен в публичных метаданных; полный вход, обновление токенов и вызовы инструментов с аккаунтом не проверены."
+      ],
+      "sources": [
+        "https://mcp.sentry.dev/"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "sentry",
+        "version": "1.0.0",
+        "serverName": "sentry:api"
+      },
+      "catalogCardId": "ompra-starter/sentry",
+      "publishedSetup": "oauth",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://mcp.sentry.dev/mcp",
+        "keylessToolsDiscoveryPassed": false,
+        "oauthDynamicRegistrationAdvertised": true,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     },
     {
       "id": "posthog",
@@ -343,47 +1073,370 @@
       "sectionId": "business",
       "evidence": "documentation-verified",
       "executionTested": false,
-      "publicationStatus": "proposed",
-      "setup": ["api-key", "oauth"],
-      "research": { "file": "research/observability.json", "id": "posthog" },
-      "blockersRu": ["Проверить подключение с личным API-ключом, выбранную организацию, проект и регион хранения данных.", "Документирована инфраструктура OAuth, но динамическая регистрация Ompra не проверена.", "Проверить выбранный режим инструментов и подтверждение изменений флагов и экспериментов."],
-      "sources": ["https://github.com/PostHog/posthog/blob/master/services/mcp/README.md"]
+      "publicationStatus": "published-wrapper",
+      "setup": [
+        "api-key",
+        "oauth"
+      ],
+      "research": {
+        "file": "research/observability.json",
+        "id": "posthog"
+      },
+      "blockersRu": [
+        "После установки открыть Settings → MCP → posthog:api → Reauthorize и дать согласие на доступ к выбранным ресурсам. Установка не означает подключение аккаунта.",
+        "DCR объявлен в публичных метаданных; полный вход, обновление токенов и вызовы инструментов с аккаунтом не проверены."
+      ],
+      "sources": [
+        "https://github.com/PostHog/posthog/blob/master/services/mcp/README.md"
+      ],
+      "installable": true,
+      "package": {
+        "marketplace": "ompra-starter",
+        "name": "posthog",
+        "version": "1.0.0",
+        "serverName": "posthog:api"
+      },
+      "catalogCardId": "ompra-starter/posthog",
+      "publishedSetup": "oauth",
+      "verification": {
+        "file": "research/remote-probes.json",
+        "endpoint": "https://mcp.posthog.com/mcp",
+        "keylessToolsDiscoveryPassed": false,
+        "oauthDynamicRegistrationAdvertised": true,
+        "dynamicClientRegistrationAttempted": false,
+        "authenticatedAccountTested": false,
+        "nativePackageInstalled": true,
+        "nativeServerDiscovered": true,
+        "unauthenticatedProbeToolsInvoked": false
+      }
     }
   ],
   "cards": [
-    { "id": "github", "integrationId": "github", "titleRu": "GitHub", "summaryRu": "Репозитории, задачи, pull request и результаты CI в рабочем диалоге.", "promptRu": "Посмотри открытые pull request этого репозитория и неудачные проверки CI. Составь список того, что мешает слиянию, со ссылками на причины." },
-    { "id": "supabase", "integrationId": "supabase", "titleRu": "Supabase", "summaryRu": "Структура базы, SQL, миграции и диагностика проекта.", "promptRu": "Изучи структуру выбранной базы и рекомендации Supabase. Объясни, какие индексы стоит проверить и какие миграции понадобятся; пока ничего не применяй." },
-    { "id": "vercel", "integrationId": "vercel", "titleRu": "Vercel", "summaryRu": "Проекты, развёртывания и журналы сборки Vercel.", "promptRu": "Найди последнее неудачное развёртывание проекта, изучи журналы и предложи исправление с объяснением причины сбоя." },
-    { "id": "render", "integrationId": "render", "titleRu": "Render", "summaryRu": "Сервисы, развёртывания, журналы и показатели инфраструктуры.", "promptRu": "Проверь последние события и ошибки выбранного сервиса Render. Сопоставь их со скачками нагрузки и предложи план устранения проблемы." },
-    { "id": "railway", "integrationId": "railway", "titleRu": "Railway", "summaryRu": "Проекты, окружения и диагностика развёртываний Railway.", "promptRu": "Разберись, почему сервис в выбранном окружении Railway не запускается после последнего развёртывания. Покажи причину и необходимые изменения без раскрытия значений секретов." },
-    { "id": "figma", "integrationId": "figma", "titleRu": "Figma", "summaryRu": "Макеты, компоненты и переменные дизайна рядом с кодом.", "promptRu": "Изучи выбранный экран Figma, найди используемые компоненты и переменные. Предложи план реализации в проекте с повторным использованием существующих компонентов." },
-    { "id": "canva", "integrationId": "canva", "titleRu": "Canva", "summaryRu": "Поиск, создание, редактирование и экспорт дизайнов Canva.", "promptRu": "Найди подходящий дизайн для анонса продукта и предложи вариант текста и композиции в нашем стиле. Сначала покажи, что собираешься изменить." },
-    { "id": "tldraw", "integrationId": "tldraw", "titleRu": "tldraw", "summaryRu": "Интерактивный холст для схем, процессов и совместных набросков.", "promptRu": "Нарисуй схему входа пользователя в приложение: регистрация, подтверждение почты, вход и восстановление доступа. Отметь точки, где возможны ошибки." },
-    { "id": "firecrawl", "integrationId": "firecrawl", "titleRu": "Firecrawl", "summaryRu": "Поиск в интернете и извлечение содержимого страниц и документов.", "promptRu": "Найди актуальную официальную документацию по выбранной технологии, извлеки нужные разделы и составь краткое руководство со ссылками на источники." },
-    { "id": "exa", "integrationId": "exa", "titleRu": "Exa", "summaryRu": "Веб-поиск, чтение страниц и исследования по нескольким источникам.", "promptRu": "Найди первичные источники по теме исследования, сравни их даты и выводы. Дай краткую записку с подтверждёнными фактами и вопросами, где данных недостаточно." },
-    { "id": "superpowers", "integrationId": "superpowers", "titleRu": "Superpowers", "summaryRu": "Навыки планирования, разработки через тесты, отладки и ревью.", "promptRu": "Разбери задачу на проверяемые шаги, уточни критерии готовности и начни с минимального рабочего сценария. Перед завершением проверь результат и перечисли оставшиеся ограничения." },
-    { "id": "playwright", "integrationId": "playwright", "titleRu": "Playwright", "summaryRu": "Проверка веб-интерфейсов, действий пользователя и ошибок браузера.", "promptRu": "Проверь основной сценарий этого локального веб-приложения в отдельном браузерном профиле. Найди ошибки интерфейса и консоли, сохрани подтверждающие скриншоты." },
-    { "id": "context7", "integrationId": "context7", "titleRu": "Context7", "summaryRu": "Актуальная документация библиотек и примеры для нужной версии.", "promptRu": "Найди документацию для версии библиотеки, установленной в проекте. Покажи рекомендованный способ решения задачи и укажи важные отличия от старых примеров." },
-    { "id": "gmail", "integrationId": "google-workspace-community", "titleRu": "Gmail", "summaryRu": "Поиск писем, обзор переписки и подготовка черновиков через мост сообщества.", "promptRu": "Найди письма по этому проекту за последнюю неделю. Выдели вопросы без ответа и подготовь черновики ответов, не отправляя их." },
-    { "id": "google-drive", "integrationId": "google-workspace-community", "titleRu": "Google Drive", "summaryRu": "Поиск и работа с файлами Google Drive через мост сообщества.", "promptRu": "Найди документы по проекту на Google Drive, сгруппируй их по назначению и дай ссылки на актуальные версии. Отметь возможные дубликаты." },
-    { "id": "google-calendar", "integrationId": "google-workspace-community", "titleRu": "Google Calendar", "summaryRu": "События, свободное время и планирование встреч через мост сообщества.", "promptRu": "Посмотри мой календарь на следующую неделю и предложи три свободных окна для часовой встречи в рабочее время. Покажи даты и часовой пояс." },
-    { "id": "google-docs", "integrationId": "google-workspace-community", "titleRu": "Google Docs", "summaryRu": "Чтение, создание и редактирование документов через мост сообщества.", "promptRu": "Прочитай выбранный документ с требованиями. Найди противоречия, пропуски и непроверяемые формулировки; предложи точечные правки перед их внесением." },
-    { "id": "google-sheets", "integrationId": "google-workspace-community", "titleRu": "Google Sheets", "summaryRu": "Данные, формулы и оформление таблиц через мост сообщества.", "promptRu": "Изучи выбранную таблицу, проверь пропуски и формулы. Объясни ключевые изменения показателей и предложи исправления с указанием конкретных ячеек." },
-    { "id": "google-slides", "integrationId": "google-workspace-community", "titleRu": "Google Slides", "summaryRu": "Создание и редактирование презентаций через мост сообщества.", "promptRu": "Изучи выбранную презентацию и предложи более ясную структуру для пяти минут выступления. Сохрани её стиль и подготовь тексты слайдов и заметки докладчика." },
-    { "id": "google-contacts", "integrationId": "google-workspace-community", "titleRu": "Google Contacts", "summaryRu": "Поиск контактов и обзор адресной книги через мост сообщества.", "promptRu": "Найди контакты участников проекта и составь список с именами и доступными рабочими адресами. Покажи возможные дубликаты, ничего не объединяя." },
-    { "id": "notion", "integrationId": "notion", "titleRu": "Notion", "summaryRu": "Страницы, базы знаний и рабочие базы данных Notion.", "promptRu": "Найди материалы о выбранном проекте в Notion. Составь обзор решений, незакрытых вопросов и следующих шагов со ссылками на страницы." },
-    { "id": "linear", "integrationId": "linear", "titleRu": "Linear", "summaryRu": "Задачи, проекты, комментарии и контроль выполнения.", "promptRu": "Собери задачи текущего цикла Linear, выдели заблокированные и просроченные. Предложи порядок работы с учётом зависимостей и ответственных." },
-    { "id": "atlassian", "integrationId": "atlassian", "titleRu": "Atlassian", "summaryRu": "Задачи Jira и знания Confluence в одном рабочем контексте.", "promptRu": "Найди связанные задачи Jira и страницы Confluence по этой функции. Сравни требования с текущим статусом и перечисли расхождения со ссылками." },
-    { "id": "stripe", "integrationId": "stripe", "titleRu": "Stripe", "summaryRu": "Диагностика платежей, клиентов и подписок Stripe.", "promptRu": "Изучи неудачные платежи за выбранный период в разрешённой среде Stripe. Сгруппируй причины и предложи действия, не меняя платежи или подписки." },
-    { "id": "plane", "integrationId": "plane", "titleRu": "Plane", "summaryRu": "Проекты, рабочие задачи, циклы и планирование в Plane.", "promptRu": "Собери обзор выбранного проекта Plane: что сделано, что заблокировано и что следует взять в следующий цикл. Подкрепи выводы ссылками на задачи." },
-    { "id": "jotform", "integrationId": "jotform", "titleRu": "Jotform", "summaryRu": "Формы, опросы и просмотр ответов пользователей.", "promptRu": "Изучи выбранную форму и предложи, как сократить её без потери важных данных. Подготовь новую структуру полей и правила проверки перед изменением формы." },
-    { "id": "slack", "integrationId": "slack", "titleRu": "Slack", "summaryRu": "Поиск обсуждений, чтение веток и подготовка сообщений команды.", "promptRu": "Найди обсуждения выбранной задачи в Slack. Составь краткий обзор решений, открытых вопросов и договорённостей, сохрани ссылки на ветки." },
-    { "id": "asana", "integrationId": "asana", "titleRu": "Asana", "summaryRu": "Задачи, проекты и обзоры выполнения в Asana.", "promptRu": "Подготовь обзор выбранного проекта Asana на эту неделю: завершённые задачи, риски сроков и зависимости, требующие внимания команды." },
-    { "id": "hubspot", "integrationId": "hubspot", "titleRu": "HubSpot", "summaryRu": "Контекст CRM, сделки, контакты и рабочие отчёты.", "promptRu": "Посмотри сделки выбранного направления в HubSpot. Выдели сделки без недавней активности и предложи следующие шаги, не меняя записи CRM." },
-    { "id": "dropbox", "integrationId": "dropbox", "titleRu": "Dropbox", "summaryRu": "Поиск файлов, папок и рабочих материалов Dropbox.", "promptRu": "Найди в Dropbox материалы по проекту и собери навигацию по главным файлам. Отметь устаревшие версии, не удаляя и не перемещая их." },
-    { "id": "microsoft-work-iq", "integrationId": "microsoft-work-iq", "titleRu": "Microsoft 365 Work IQ", "summaryRu": "Рабочий контекст Outlook, Teams и файлов Microsoft 365.", "promptRu": "Собери доступный мне контекст проекта из рабочих писем, встреч, Teams и файлов Microsoft 365. Выдели решения и обязательства со ссылками на источники." },
-    { "id": "shopify-dev", "integrationId": "shopify-dev", "titleRu": "Shopify Dev", "summaryRu": "Документация и инструменты разработки приложений и тем Shopify.", "promptRu": "Найди актуальные требования Shopify для этой функции приложения или темы. Сверь подход с документацией и предложи минимальный рабочий пример." },
-    { "id": "sentry", "integrationId": "sentry", "titleRu": "Sentry", "summaryRu": "Ошибки приложения, события и контекст для диагностики сбоев.", "promptRu": "Найди наиболее частую новую ошибку выбранного проекта Sentry за последние сутки. Объясни затронутый сценарий и предложи проверяемую гипотезу исправления." },
-    { "id": "posthog", "integrationId": "posthog", "titleRu": "PostHog", "summaryRu": "Продуктовая аналитика, флаги функций, эксперименты и ошибки.", "promptRu": "Проверь воронку регистрации за последнюю неделю в выбранном проекте PostHog. Покажи, где вырос отток, и предложи гипотезы для проверки без изменения флагов." }
-  ]
+    {
+      "id": "github",
+      "integrationId": "github",
+      "titleRu": "GitHub",
+      "summaryRu": "Репозитории, задачи, pull request и результаты CI в рабочем диалоге.",
+      "promptRu": "Посмотри открытые pull request этого репозитория и неудачные проверки CI. Составь список того, что мешает слиянию, со ссылками на причины.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "supabase",
+      "integrationId": "supabase",
+      "titleRu": "Supabase",
+      "summaryRu": "Структура базы, SQL, миграции и диагностика проекта.",
+      "promptRu": "Изучи структуру выбранной базы и рекомендации Supabase. Объясни, какие индексы стоит проверить и какие миграции понадобятся; пока ничего не применяй.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "vercel",
+      "integrationId": "vercel",
+      "titleRu": "Vercel",
+      "summaryRu": "Проекты, развёртывания и журналы сборки Vercel.",
+      "promptRu": "Найди последнее неудачное развёртывание проекта, изучи журналы и предложи исправление с объяснением причины сбоя.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "render",
+      "integrationId": "render",
+      "titleRu": "Render",
+      "summaryRu": "Сервисы, развёртывания, журналы и показатели инфраструктуры.",
+      "promptRu": "Проверь последние события и ошибки выбранного сервиса Render. Сопоставь их со скачками нагрузки и предложи план устранения проблемы.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "railway",
+      "integrationId": "railway",
+      "titleRu": "Railway",
+      "summaryRu": "Проекты, окружения и диагностика развёртываний Railway.",
+      "promptRu": "Разберись, почему сервис в выбранном окружении Railway не запускается после последнего развёртывания. Покажи причину и необходимые изменения без раскрытия значений секретов.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "figma",
+      "integrationId": "figma",
+      "titleRu": "Figma",
+      "summaryRu": "Макеты, компоненты и переменные дизайна рядом с кодом.",
+      "promptRu": "Изучи выбранный экран Figma, найди используемые компоненты и переменные. Предложи план реализации в проекте с повторным использованием существующих компонентов.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "canva",
+      "integrationId": "canva",
+      "titleRu": "Canva",
+      "summaryRu": "Поиск, создание, редактирование и экспорт дизайнов Canva.",
+      "promptRu": "Найди подходящий дизайн для анонса продукта и предложи вариант текста и композиции в нашем стиле. Сначала покажи, что собираешься изменить.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "tldraw",
+      "integrationId": "tldraw",
+      "titleRu": "tldraw",
+      "summaryRu": "Интерактивный холст для схем, процессов и совместных набросков.",
+      "promptRu": "Нарисуй схему входа пользователя в приложение: регистрация, подтверждение почты, вход и восстановление доступа. Отметь точки, где возможны ошибки.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "firecrawl",
+      "integrationId": "firecrawl",
+      "titleRu": "Firecrawl",
+      "summaryRu": "Поиск в интернете и извлечение содержимого страниц и документов.",
+      "promptRu": "Найди актуальную официальную документацию по выбранной технологии, извлеки нужные разделы и составь краткое руководство со ссылками на источники.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "exa",
+      "integrationId": "exa",
+      "titleRu": "Exa",
+      "summaryRu": "Веб-поиск, чтение страниц и исследования по нескольким источникам.",
+      "promptRu": "Найди первичные источники по теме исследования, сравни их даты и выводы. Дай краткую записку с подтверждёнными фактами и вопросами, где данных недостаточно.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "superpowers",
+      "integrationId": "superpowers",
+      "titleRu": "Superpowers",
+      "summaryRu": "Навыки планирования, разработки через тесты, отладки и ревью.",
+      "promptRu": "Разбери задачу на проверяемые шаги, уточни критерии готовности и начни с минимального рабочего сценария. Перед завершением проверь результат и перечисли оставшиеся ограничения.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "playwright",
+      "integrationId": "playwright",
+      "titleRu": "Playwright",
+      "summaryRu": "Проверка веб-интерфейсов, действий пользователя и ошибок браузера.",
+      "promptRu": "Проверь основной сценарий этого локального веб-приложения в отдельном браузерном профиле. Найди ошибки интерфейса и консоли, сохрани подтверждающие скриншоты.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "context7",
+      "integrationId": "context7",
+      "titleRu": "Context7",
+      "summaryRu": "Актуальная документация библиотек и примеры для нужной версии.",
+      "promptRu": "Найди документацию для версии библиотеки, установленной в проекте. Покажи рекомендованный способ решения задачи и укажи важные отличия от старых примеров.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "gmail",
+      "integrationId": "google-workspace-community",
+      "titleRu": "Gmail",
+      "summaryRu": "Поиск писем, обзор переписки и подготовка черновиков через мост сообщества.",
+      "promptRu": "Найди письма по этому проекту за последнюю неделю. Выдели вопросы без ответа и подготовь черновики ответов, не отправляя их.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "google-drive",
+      "integrationId": "google-workspace-community",
+      "titleRu": "Google Drive",
+      "summaryRu": "Поиск и работа с файлами Google Drive через мост сообщества.",
+      "promptRu": "Найди документы по проекту на Google Drive, сгруппируй их по назначению и дай ссылки на актуальные версии. Отметь возможные дубликаты.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "google-calendar",
+      "integrationId": "google-workspace-community",
+      "titleRu": "Google Calendar",
+      "summaryRu": "События, свободное время и планирование встреч через мост сообщества.",
+      "promptRu": "Посмотри мой календарь на следующую неделю и предложи три свободных окна для часовой встречи в рабочее время. Покажи даты и часовой пояс.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "google-docs",
+      "integrationId": "google-workspace-community",
+      "titleRu": "Google Docs",
+      "summaryRu": "Чтение, создание и редактирование документов через мост сообщества.",
+      "promptRu": "Прочитай выбранный документ с требованиями. Найди противоречия, пропуски и непроверяемые формулировки; предложи точечные правки перед их внесением.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "google-sheets",
+      "integrationId": "google-workspace-community",
+      "titleRu": "Google Sheets",
+      "summaryRu": "Данные, формулы и оформление таблиц через мост сообщества.",
+      "promptRu": "Изучи выбранную таблицу, проверь пропуски и формулы. Объясни ключевые изменения показателей и предложи исправления с указанием конкретных ячеек.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "google-slides",
+      "integrationId": "google-workspace-community",
+      "titleRu": "Google Slides",
+      "summaryRu": "Создание и редактирование презентаций через мост сообщества.",
+      "promptRu": "Изучи выбранную презентацию и предложи более ясную структуру для пяти минут выступления. Сохрани её стиль и подготовь тексты слайдов и заметки докладчика.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "google-contacts",
+      "integrationId": "google-workspace-community",
+      "titleRu": "Google Contacts",
+      "summaryRu": "Поиск контактов и обзор адресной книги через мост сообщества.",
+      "promptRu": "Найди контакты участников проекта и составь список с именами и доступными рабочими адресами. Покажи возможные дубликаты, ничего не объединяя.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "airtable",
+      "integrationId": "airtable",
+      "titleRu": "Airtable",
+      "summaryRu": "Базы, записи, схемы и поддерживаемые черновики автоматизаций Airtable.",
+      "promptRu": "Покажи доступные мне базы Airtable и изучи структуру базы Project Tracker. Составь обзор просроченных задач и предложи следующие действия, пока ничего не изменяя.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "notion",
+      "integrationId": "notion",
+      "titleRu": "Notion",
+      "summaryRu": "Страницы, базы знаний и рабочие базы данных Notion.",
+      "promptRu": "Найди материалы о выбранном проекте в Notion. Составь обзор решений, незакрытых вопросов и следующих шагов со ссылками на страницы.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "linear",
+      "integrationId": "linear",
+      "titleRu": "Linear",
+      "summaryRu": "Задачи, проекты, комментарии и контроль выполнения.",
+      "promptRu": "Собери задачи текущего цикла Linear, выдели заблокированные и просроченные. Предложи порядок работы с учётом зависимостей и ответственных.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "atlassian",
+      "integrationId": "atlassian",
+      "titleRu": "Atlassian",
+      "summaryRu": "Задачи Jira и знания Confluence в одном рабочем контексте.",
+      "promptRu": "Найди связанные задачи Jira и страницы Confluence по этой функции. Сравни требования с текущим статусом и перечисли расхождения со ссылками.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "stripe",
+      "integrationId": "stripe",
+      "titleRu": "Stripe",
+      "summaryRu": "Диагностика платежей, клиентов и подписок Stripe.",
+      "promptRu": "Изучи неудачные платежи за выбранный период в разрешённой среде Stripe. Сгруппируй причины и предложи действия, не меняя платежи или подписки.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "plane",
+      "integrationId": "plane",
+      "titleRu": "Plane",
+      "summaryRu": "Проекты, рабочие задачи, циклы и планирование в Plane.",
+      "promptRu": "Собери обзор выбранного проекта Plane: что сделано, что заблокировано и что следует взять в следующий цикл. Подкрепи выводы ссылками на задачи.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "jotform",
+      "integrationId": "jotform",
+      "titleRu": "Jotform",
+      "summaryRu": "Формы, опросы и просмотр ответов пользователей.",
+      "promptRu": "Изучи выбранную форму и предложи, как сократить её без потери важных данных. Подготовь новую структуру полей и правила проверки перед изменением формы.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "slack",
+      "integrationId": "slack",
+      "titleRu": "Slack",
+      "summaryRu": "Поиск обсуждений, чтение веток и подготовка сообщений команды.",
+      "promptRu": "Найди обсуждения выбранной задачи в Slack. Составь краткий обзор решений, открытых вопросов и договорённостей, сохрани ссылки на ветки.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "asana",
+      "integrationId": "asana",
+      "titleRu": "Asana",
+      "summaryRu": "Задачи, проекты и обзоры выполнения в Asana.",
+      "promptRu": "Подготовь обзор выбранного проекта Asana на эту неделю: завершённые задачи, риски сроков и зависимости, требующие внимания команды.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "hubspot",
+      "integrationId": "hubspot",
+      "titleRu": "HubSpot",
+      "summaryRu": "Контекст CRM, сделки, контакты и рабочие отчёты.",
+      "promptRu": "Посмотри сделки выбранного направления в HubSpot. Выдели сделки без недавней активности и предложи следующие шаги, не меняя записи CRM.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "dropbox",
+      "integrationId": "dropbox",
+      "titleRu": "Dropbox",
+      "summaryRu": "Поиск файлов, папок и рабочих материалов Dropbox.",
+      "promptRu": "Найди в Dropbox материалы по проекту и собери навигацию по главным файлам. Отметь устаревшие версии, не удаляя и не перемещая их.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "microsoft-work-iq",
+      "integrationId": "microsoft-work-iq",
+      "titleRu": "Microsoft 365 Work IQ",
+      "summaryRu": "Рабочий контекст Outlook, Teams и файлов Microsoft 365.",
+      "promptRu": "Собери доступный мне контекст проекта из рабочих писем, встреч, Teams и файлов Microsoft 365. Выдели решения и обязательства со ссылками на источники.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "shopify-dev",
+      "integrationId": "shopify-dev",
+      "titleRu": "Shopify Dev",
+      "summaryRu": "Документация и инструменты разработки приложений и тем Shopify.",
+      "promptRu": "Найди актуальные требования Shopify для этой функции приложения или темы. Сверь подход с документацией и предложи минимальный рабочий пример.",
+      "installable": false,
+      "publicationStatus": "planned"
+    },
+    {
+      "id": "sentry",
+      "integrationId": "sentry",
+      "titleRu": "Sentry",
+      "summaryRu": "Ошибки приложения, события и контекст для диагностики сбоев.",
+      "promptRu": "Найди наиболее частую новую ошибку выбранного проекта Sentry за последние сутки. Объясни затронутый сценарий и предложи проверяемую гипотезу исправления.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    },
+    {
+      "id": "posthog",
+      "integrationId": "posthog",
+      "titleRu": "PostHog",
+      "summaryRu": "Продуктовая аналитика, флаги функций, эксперименты и ошибки.",
+      "promptRu": "Проверь воронку регистрации за последнюю неделю в выбранном проекте PostHog. Покажи, где вырос отток, и предложи гипотезы для проверки без изменения флагов.",
+      "installable": true,
+      "publicationStatus": "published-wrapper"
+    }
+  ],
+  "runtimeCatalogVersion": "1.1.0",
+  "runtimeCatalogFile": "catalog.json",
+  "counts": {
+    "cards": 35,
+    "integrations": 29,
+    "publishedWrappers": 16,
+    "plannedCards": 19,
+    "runtimeCards": 22,
+    "starterSkills": 6
+  },
+  "executionTestedMeaning": "Complete authenticated provider-account workflow. Native installation, keyless discovery, and a separate public Context7 lookup are recorded independently and do not set this field to true."
 }

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-10T17:32:48.826Z",
+  "scope": "Native compiled OMP package installation, MCP discovery, public tools and local configuration lifecycle. This is not an account OAuth or provider write-operation certification.",
+  "engine": {
+    "version": "18.8.6",
+    "sourceCommit": "ba05fea603b57ae15e31f8c9d08719e8de419407",
+    "windowsExecutableSha256": "b8562af8ff0bc992e6d69d08ccd23e672d5ab8ccdcd27c2db223d766494d8a19"
+  },
+  "packageCommit": "e7c64a7e0e96f33a2444c25ddd2301a72d535539",
+  "isolation": {
+    "freshProfiles": true,
+    "realProviderCredentialsUsed": false,
+    "oauthRegistrationOrLoginPerformed": false,
+    "model": "Loopback deterministic fixture; two requests; no hosted LLM calls",
+    "ownedProcessesStopped": true
+  },
+  "nativeChecksPassed": 32,
+  "installedAndDiscovered": [
+    "context7", "firecrawl", "airtable", "notion", "linear", "supabase",
+    "atlassian", "sentry", "plane", "jotform", "posthog", "railway",
+    "stripe", "exa", "github", "render"
+  ],
+  "publicConnections": [
+    { "id": "context7", "toolCount": 2, "nativeInlineMcpTestPassed": true },
+    { "id": "firecrawl", "toolCount": 3, "nativeInlineMcpTestPassed": true },
+    { "id": "exa", "toolCount": 2, "nativeInlineMcpTestPassed": true }
+  ],
+  "publicToolInvocation": {
+    "tool": "mcp__context7_api_resolve_library_id",
+    "request": "Resolve the React documentation library",
+    "passed": true,
+    "execution": "Production compiled agent invoked the real remote MCP tool; only the local model response was scripted"
+  },
+  "disableAndEnablePassed": ["context7", "airtable", "exa"],
+  "uninstallRemovedDiscoveredServer": ["airtable", "firecrawl", "github"],
+  "airtableRemoteGitSubdir": {
+    "repository": "https://github.com/vallgrice/ompra-catalog.git",
+    "path": "plugins/airtable",
+    "installAndDiscoveryPassed": true,
+    "uninstallPassed": true,
+    "accountConnection": "Disconnected with zero tools before authorization; authenticated access untested"
+  },
+  "localUserOverride": {
+    "syntheticLoopbackChecksPassed": 4,
+    "sameNameOverridesPluginDefinition": true,
+    "headerUsedWithoutExposureInRpcOrPackage": true,
+    "survivesPluginUninstall": true,
+    "explicitMcpRemovalPassed": true,
+    "githubOrRenderAccountAuthenticated": false
+  },
+  "limits": [
+    "Account consent, token exchange and provider-specific account tools remain untested.",
+    "Discovered servers may report authState none before authorization; this is not evidence that OAuth is unnecessary.",
+    "The engine's named MCP Test reads saved user/project configurations, not package-discovered definitions. Public discovery was tested using explicit inline definitions.",
+    "The runtime selection requires Git to download packages and internet access for remote MCP services."
+  ]
+}

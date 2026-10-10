@@ -48,21 +48,47 @@ for (const card of catalog.plugins) {
   assert.equal(entry.source.url, repo);
   assert.equal(entry.source.path, `plugins/${card.name}`);
   assert.match(entry.source.sha, /^[0-9a-f]{40}$/, `Pin ${card.name} to a complete package commit SHA`);
-  assert.deepEqual(card.requirements, { runtimes: ['git'], account: false, network: true });
+  assert.deepEqual(card.requirements.runtimes, ['git']);
+  assert.equal(card.requirements.network, true);
   const directory = `plugins/${card.name}`;
   const plugin = await json(`${directory}/plugin.json`);
   const pkg = await json(`${directory}/package.json`);
   assert.equal(plugin.version, card.version);
   assert.equal(pkg.version, card.version);
   assert.equal(pkg.omp.version, card.version);
-  assert.equal(pkg.name, `@ompra/skill-${card.name}`);
+  assert.equal(pkg.name, `@ompra/${card.kind === 'mcp' ? 'mcp' : 'skill'}-${card.name}`);
   assert.equal(plugin.license, card.license);
   assert.equal(pkg.license, card.license);
-  assert.equal(pkg.dependencies, undefined, 'Instruction packs do not install dependencies');
-  assert.equal(pkg.scripts, undefined, 'Instruction packs do not execute scripts');
-  const skill = await readFile(path.join(root, directory, `skills/ompra-${card.name}/SKILL.md`), 'utf8');
-  assert.ok(skill.includes(`name: ompra-${card.name}`));
-  assert.ok(skill.includes('## Deliverable'));
+  for (const key of ['dependencies', 'devDependencies', 'optionalDependencies', 'scripts']) {
+    assert.equal(pkg[key], undefined, 'Catalog packages must not download dependencies or execute scripts');
+  }
+  if (card.kind === 'mcp') {
+    assert.equal(plugin.$schema, 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json');
+    assert.equal(plugin.name, card.name);
+    const mcp = await json(`${directory}/mcp.json`);
+    assert.equal(mcp.$schema, 'https://agent-plugins.org/schemas/1.0.0/mcp.schema.json');
+    assert.deepEqual(Object.keys(mcp).sort(), ['$schema', 'mcpServers']);
+    assert.deepEqual(Object.keys(mcp.mcpServers), ['api']);
+    const server = mcp.mcpServers.api;
+    assert.deepEqual(Object.keys(server).sort(), ['type', 'url'], 'Public wrappers must not contain keys, headers or executable commands');
+    assert.equal(server.type, 'streamable-http');
+    const endpoint = new URL(server.url);
+    assert.equal(endpoint.protocol, 'https:');
+    assert.ok(!endpoint.username && !endpoint.password && !endpoint.hash);
+    for (const key of endpoint.searchParams.keys()) assert.ok(!/token|key|secret|password/i.test(key), 'Never publish credentials in MCP URLs');
+    if (card.name === 'supabase') assert.equal(endpoint.searchParams.get('read_only'), 'true');
+    if (card.name === 'linear') assert.equal(endpoint.pathname, '/mcp/readonly');
+    if (card.name === 'exa') assert.ok(endpoint.searchParams.get('tools')?.split(',').includes('web_fetch_exa'), 'Keep Exa discoverable alongside native web search');
+    const readme = await readFile(path.join(root, directory, 'README.md'), 'utf8');
+    assert.ok(readme.includes(`${card.name}:api`), 'Document the actual discovered server name');
+    assert.ok(readme.includes(server.url), 'Document the endpoint used by this package');
+  } else {
+    assert.equal(card.kind, 'skill');
+    assert.equal(card.requirements.account, false);
+    const skill = await readFile(path.join(root, directory, `skills/ompra-${card.name}/SKILL.md`), 'utf8');
+    assert.ok(skill.includes(`name: ompra-${card.name}`));
+    assert.ok(skill.includes('## Deliverable'));
+  }
   assert.ok((await readFile(path.join(root, directory, 'LICENSE'), 'utf8')).includes('MIT License'));
 }
 console.log(`Validated catalog ${catalog.version}: ${names.size} cards, ${marketplace.plugins.length} immutable Ompra packages.`);

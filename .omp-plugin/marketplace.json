@@ -4,8 +4,8 @@
     "name": "Ompra contributors"
   },
   "metadata": {
-    "description": "Curated Ompra instruction skills. Installation and upgrades fetch immutable Git commits.",
-    "version": "1.0.1"
+    "description": "Curated Ompra skills and remote MCP integrations. Packages are pinned to immutable Git commits; account connections are configured locally.",
+    "version": "1.1.0"
   },
   "plugins": [
     {
@@ -139,6 +139,390 @@
         "git-install"
       ],
       "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "name": "context7",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/context7",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Current library documentation and code examples.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://github.com/upstash/context7"
+    },
+    {
+      "name": "firecrawl",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/firecrawl",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Search, scrape and parse public web content.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://docs.firecrawl.dev/mcp-server"
+    },
+    {
+      "name": "airtable",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/airtable",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Work with authorized Airtable bases, schemas and records.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://airtable.com/developers/agents/mcp/getting-started"
+    },
+    {
+      "name": "notion",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/notion",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Search and work with authorized Notion content.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://developers.notion.com/guides/mcp/mcp"
+    },
+    {
+      "name": "linear",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/linear",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Read Linear issues, projects and comments.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://linear.app/docs/mcp"
+    },
+    {
+      "name": "supabase",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/supabase",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Inspect Supabase projects and data with read-only tools.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://supabase.com/docs/guides/ai-tools/mcp"
+    },
+    {
+      "name": "atlassian",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/atlassian",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Connect Jira, Confluence and available Rovo tools.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/"
+    },
+    {
+      "name": "sentry",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/sentry",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Investigate application errors and performance issues.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://mcp.sentry.dev/"
+    },
+    {
+      "name": "plane",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/plane",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Work with Plane projects, work items and planning.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://developers.plane.so/dev-tools/mcp-server"
+    },
+    {
+      "name": "jotform",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/jotform",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Read and build Jotform forms with your account.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://www.jotform.com/mcp/"
+    },
+    {
+      "name": "posthog",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/posthog",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Explore product analytics, experiments and feature flags.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://posthog.com/docs/model-context-protocol"
+    },
+    {
+      "name": "railway",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/railway",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Inspect and manage Railway project deployments.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://docs.railway.com/ai/mcp-server"
+    },
+    {
+      "name": "stripe",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/stripe",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Inspect and work with permitted Stripe resources.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://docs.stripe.com/mcp"
+    },
+    {
+      "name": "exa",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/exa",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Search the web and fetch clean page content.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://exa.ai/docs/get-started/exa-mcp"
+    },
+    {
+      "name": "github",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/github",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Connect repositories, issues and pull requests using your token.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://github.com/github/github-mcp-server"
+    },
+    {
+      "name": "render",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/vallgrice/ompra-catalog.git",
+        "path": "plugins/render",
+        "sha": "e7c64a7e0e96f33a2444c25ddd2301a72d535539"
+      },
+      "description": "Inspect services, deployment logs and supported Render resources.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Ompra contributors"
+      },
+      "license": "MIT",
+      "category": "integration",
+      "tags": [
+        "ompra",
+        "mcp",
+        "remote",
+        "git-install"
+      ],
+      "repository": "https://github.com/vallgrice/ompra-catalog",
+      "homepage": "https://render.com/docs/mcp-server"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.1",
-  "updatedAt": "2026-10-10T16:24:16.958Z",
+  "version": "1.1.0",
+  "updatedAt": "2026-10-10T17:34:53.507Z",
   "marketplaces": [
     {
       "id": "ompra-starter",
@@ -326,6 +326,870 @@
           "Используй навык ompra-security: проверь изменённый код на конкретные проблемы безопасности и предложи точечные исправления."
         ]
       },
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/context7",
+      "marketplace": "ompra-starter",
+      "name": "context7",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "Context7",
+        "zh": "Context7",
+        "ru": "Context7"
+      },
+      "summary": {
+        "en": "Current library documentation and code examples.",
+        "zh": "查询最新的库文档和代码示例。",
+        "ru": "Актуальная документация библиотек и примеры кода."
+      },
+      "description": {
+        "en": "Resolve a library and retrieve relevant documentation for the version used by your project. Install, open or reload an agent session, then check context7:api in Settings → MCP. No account sign-in is needed for this starter mode. Keyless access is rate limited. No account or API key is required for the starter connection. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "识别项目使用的库，并检索相关版本的文档。 安装后打开或重新加载代理会话，在设置 → MCP 中检查 context7:api。此入门模式无需账户登录。 免密钥访问有速率限制；此入门连接无需账户或 API 密钥。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Находит библиотеку и документацию для версии, используемой в проекте. Установите пакет, откройте или перезагрузите сессию агента и проверьте context7:api в Настройки → MCP. Для начального режима вход в аккаунт не нужен. Доступ без ключа ограничен лимитами сервиса. Для начального подключения аккаунт не нужен. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": false,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP initialize and tools/list returned 2 tools with MCP 2025-11-25. No tool was invoked. Package install is checked separately; future availability, output quality and security are not certified.",
+          "zh": "2026-10-10 已验证：未认证 HTTP initialize 和 tools/list 返回 2 个工具，协议为 MCP 2025-11-25。未调用工具。包安装另行检查；不保证未来可用性，也不认证输出质量或安全性。",
+          "ru": "Проверено 10.10.2026: HTTP initialize и tools/list без авторизации вернули 2 инструмента с MCP 2025-11-25. Инструменты не вызывались. Установка проверяется отдельно; будущая доступность, качество ответов и безопасность не сертифицируются."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use Context7 to find documentation for this project's library versions and cite the relevant API examples."
+        ],
+        "zh": [
+          "使用 Context7 查找本项目所用库版本的文档，并引用相关 API 示例。"
+        ],
+        "ru": [
+          "Найди через Context7 документацию для версий библиотек этого проекта и приведи подходящие примеры API."
+        ]
+      },
+      "homepage": "https://github.com/upstash/context7",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/firecrawl",
+      "marketplace": "ompra-starter",
+      "name": "firecrawl",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "Firecrawl",
+        "zh": "Firecrawl",
+        "ru": "Firecrawl"
+      },
+      "summary": {
+        "en": "Search, scrape and parse public web content.",
+        "zh": "搜索、抓取和解析公开网页内容。",
+        "ru": "Поиск, извлечение и разбор открытого веб-контента."
+      },
+      "description": {
+        "en": "Search public pages and extract readable content for research and implementation. Install, open or reload an agent session, then check firecrawl:api in Settings → MCP. No account sign-in is needed for this starter mode. The keyless starter exposes search, scrape and parse with service limits. Account-only crawl, map and research tools are not included. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "搜索公开网页并提取可读内容，用于研究和开发。 安装后打开或重新加载代理会话，在设置 → MCP 中检查 firecrawl:api。此入门模式无需账户登录。 免密钥入门模式仅提供搜索、抓取和解析，并受服务限额约束；不包含需账户的批量爬取、站点映射和研究工具。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Ищет открытые страницы и извлекает читаемый контент для исследования и разработки. Установите пакет, откройте или перезагрузите сессию агента и проверьте firecrawl:api в Настройки → MCP. Для начального режима вход в аккаунт не нужен. Начальный режим без ключа предоставляет search, scrape и parse с лимитами сервиса. Инструменты crawl, map и исследования с аккаунтом не включены. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": false,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP initialize and tools/list returned 3 tools with MCP 2025-11-25. No tool was invoked. Package install is checked separately; future availability, output quality and security are not certified.",
+          "zh": "2026-10-10 已验证：未认证 HTTP initialize 和 tools/list 返回 3 个工具，协议为 MCP 2025-11-25。未调用工具。包安装另行检查；不保证未来可用性，也不认证输出质量或安全性。",
+          "ru": "Проверено 10.10.2026: HTTP initialize и tools/list без авторизации вернули 3 инструмента с MCP 2025-11-25. Инструменты не вызывались. Установка проверяется отдельно; будущая доступность, качество ответов и безопасность не сертифицируются."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use Firecrawl to research the public documentation for this feature and summarize the relevant pages with sources."
+        ],
+        "zh": [
+          "使用 Firecrawl 调研此功能的公开文档，概括相关页面并附上来源。"
+        ],
+        "ru": [
+          "Изучи через Firecrawl открытую документацию по этой функции и кратко изложи подходящие страницы со ссылками."
+        ]
+      },
+      "homepage": "https://docs.firecrawl.dev/mcp-server",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/airtable",
+      "marketplace": "ompra-starter",
+      "name": "airtable",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "Airtable",
+        "zh": "Airtable",
+        "ru": "Airtable"
+      },
+      "summary": {
+        "en": "Work with authorized Airtable bases, schemas and records.",
+        "zh": "访问获授权的 Airtable 数据库、结构和记录。",
+        "ru": "Работа с разрешёнными базами, схемами и записями Airtable."
+      },
+      "description": {
+        "en": "Discover bases and schemas, read records and perform permitted record or schema changes. After installation, open Settings → MCP, select airtable:api and choose Reauthorize to sign in and consent in your browser. Installation alone does not connect an account. Authorize only the bases or interfaces you need. Airtable permissions, API quotas and administrator policies apply. Automation activation still requires the Airtable UI. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "发现数据库及结构、读取记录，并执行权限允许的记录或结构修改。 安装后打开设置 → MCP，选择 airtable:api，点击 Reauthorize 在浏览器中登录并授权。仅安装不会连接账户。 仅授权需要的数据库或界面；受 Airtable 权限、API 限额和管理员策略约束。启用自动化仍需使用 Airtable 界面。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Находит базы и их структуру, читает записи и выполняет разрешённые изменения записей или схем. После установки откройте Настройки → MCP, выберите airtable:api и нажмите Reauthorize для входа и согласия в браузере. Установка сама по себе не подключает аккаунт. Выбирайте при входе нужные базы или интерфейсы. Действуют права Airtable, квоты API и политики администратора. Активация автоматизаций выполняется в интерфейсе Airtable. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": true,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP returned 401; protected-resource and authorization-server metadata advertise DCR and S256 PKCE. Client registration, account login, consent, authenticated tools and account operations were not tested. Provider policy may still restrict registration.",
+          "zh": "2026-10-10 已验证：未认证 HTTP 返回 401；受保护资源及授权服务器元数据声明 DCR 和 S256 PKCE。未测试客户端注册、账户登录、授权、已认证工具或账户操作。服务商策略仍可能限制注册。",
+          "ru": "Проверено 10.10.2026: HTTP без авторизации вернул 401; метаданные защищённого ресурса и OAuth-сервера объявляют DCR и S256 PKCE. Регистрация клиента, вход, согласие, инструменты после входа и операции аккаунта не тестировались. Политика сервиса может ограничивать регистрацию."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use Airtable to inspect the schema of an authorized base and summarize its tables and relationships without changing records."
+        ],
+        "zh": [
+          "使用 Airtable 查看已授权数据库的结构，概括表及其关联，不修改记录。"
+        ],
+        "ru": [
+          "Посмотри через Airtable структуру доступной базы и опиши таблицы и связи, не меняя записи."
+        ]
+      },
+      "homepage": "https://airtable.com/developers/agents/mcp/getting-started",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/notion",
+      "marketplace": "ompra-starter",
+      "name": "notion",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "Notion",
+        "zh": "Notion",
+        "ru": "Notion"
+      },
+      "summary": {
+        "en": "Search and work with authorized Notion content.",
+        "zh": "搜索并使用获授权的 Notion 内容。",
+        "ru": "Поиск и работа с разрешённым контентом Notion."
+      },
+      "description": {
+        "en": "Search workspace knowledge, read pages and work with supported content through Notion's official hosted MCP. After installation, open Settings → MCP, select notion:api and choose Reauthorize to sign in and consent in your browser. Installation alone does not connect an account. Available content and actions depend on your Notion permissions and authorization. This uses the hosted service, not the unmaintained legacy local MCP server. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "通过 Notion 官方托管 MCP 搜索工作区知识、阅读页面并处理支持的内容。 安装后打开设置 → MCP，选择 notion:api，点击 Reauthorize 在浏览器中登录并授权。仅安装不会连接账户。 可用内容和操作由 Notion 权限及授权决定。此连接使用托管服务，而非已停止维护的旧版本地 MCP 服务器。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Ищет знания в рабочем пространстве, читает страницы и работает с поддерживаемым контентом через официальный MCP Notion. После установки откройте Настройки → MCP, выберите notion:api и нажмите Reauthorize для входа и согласия в браузере. Установка сама по себе не подключает аккаунт. Доступные страницы и действия определяются правами и авторизацией Notion. Используется облачный сервис, а не старый неподдерживаемый локальный MCP. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": true,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP returned 401; protected-resource and authorization-server metadata advertise DCR and S256 PKCE. Client registration, account login, consent, authenticated tools and account operations were not tested. Provider policy may still restrict registration.",
+          "zh": "2026-10-10 已验证：未认证 HTTP 返回 401；受保护资源及授权服务器元数据声明 DCR 和 S256 PKCE。未测试客户端注册、账户登录、授权、已认证工具或账户操作。服务商策略仍可能限制注册。",
+          "ru": "Проверено 10.10.2026: HTTP без авторизации вернул 401; метаданные защищённого ресурса и OAuth-сервера объявляют DCR и S256 PKCE. Регистрация клиента, вход, согласие, инструменты после входа и операции аккаунта не тестировались. Политика сервиса может ограничивать регистрацию."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use Notion to find the project specification in the authorized workspace and summarize its requirements with page links."
+        ],
+        "zh": [
+          "使用 Notion 在已授权工作区中查找项目规范，概括需求并附上页面链接。"
+        ],
+        "ru": [
+          "Найди через Notion спецификацию проекта в доступном рабочем пространстве и изложи требования со ссылками на страницы."
+        ]
+      },
+      "homepage": "https://developers.notion.com/guides/mcp/mcp",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/linear",
+      "marketplace": "ompra-starter",
+      "name": "linear",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "Linear",
+        "zh": "Linear",
+        "ru": "Linear"
+      },
+      "summary": {
+        "en": "Read Linear issues, projects and comments.",
+        "zh": "读取 Linear 任务、项目和评论。",
+        "ru": "Чтение задач, проектов и комментариев Linear."
+      },
+      "description": {
+        "en": "Find project context, inspect issues and summarize progress using the official read-only MCP endpoint. After installation, open Settings → MCP, select linear:api and choose Reauthorize to sign in and consent in your browser. Installation alone does not connect an account. The starter endpoint only exposes read tools and advertises the read OAuth scope. Creating or updating issues requires an explicit separate read-write configuration. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "通过官方只读 MCP 端点获取项目上下文、查看任务并概括进展。 安装后打开设置 → MCP，选择 linear:api，点击 Reauthorize 在浏览器中登录并授权。仅安装不会连接账户。 此入门端点仅暴露读取工具，并声明 read OAuth 权限。创建或更新任务需要另行明确配置读写连接。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Находит контекст проекта, просматривает задачи и сводит прогресс через официальный MCP с доступом только на чтение. После установки откройте Настройки → MCP, выберите linear:api и нажмите Reauthorize для входа и согласия в браузере. Установка сама по себе не подключает аккаунт. Начальный endpoint предоставляет только инструменты чтения и OAuth scope read. Для создания или изменения задач нужна отдельная явная конфигурация с записью. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": true,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP returned 401; protected-resource and authorization-server metadata advertise DCR and S256 PKCE. Client registration, account login, consent, authenticated tools and account operations were not tested. Provider policy may still restrict registration.",
+          "zh": "2026-10-10 已验证：未认证 HTTP 返回 401；受保护资源及授权服务器元数据声明 DCR 和 S256 PKCE。未测试客户端注册、账户登录、授权、已认证工具或账户操作。服务商策略仍可能限制注册。",
+          "ru": "Проверено 10.10.2026: HTTP без авторизации вернул 401; метаданные защищённого ресурса и OAuth-сервера объявляют DCR и S256 PKCE. Регистрация клиента, вход, согласие, инструменты после входа и операции аккаунта не тестировались. Политика сервиса может ограничивать регистрацию."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use Linear to read the current project issues and summarize blockers and priorities without changing them."
+        ],
+        "zh": [
+          "使用 Linear 阅读当前项目任务，概括阻塞项和优先级，不修改任务。"
+        ],
+        "ru": [
+          "Прочитай через Linear задачи текущего проекта и составь сводку блокеров и приоритетов, не меняя задачи."
+        ]
+      },
+      "homepage": "https://linear.app/docs/mcp",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/supabase",
+      "marketplace": "ompra-starter",
+      "name": "supabase",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "Supabase",
+        "zh": "Supabase",
+        "ru": "Supabase"
+      },
+      "summary": {
+        "en": "Inspect Supabase projects and data with read-only tools.",
+        "zh": "通过只读工具检查 Supabase 项目和数据。",
+        "ru": "Просмотр проектов и данных Supabase через инструменты чтения."
+      },
+      "description": {
+        "en": "Inspect database schemas, project information, logs and supported diagnostics through the official hosted MCP. After installation, open Settings → MCP, select supabase:api and choose Reauthorize to sign in and consent in your browser. Installation alone does not connect an account. The starter URL explicitly enables read_only=true. Select the intended organization; add project_ref in a separate local configuration to scope a project. Provider quotas and permissions apply. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "通过官方托管 MCP 检查数据库结构、项目信息、日志和支持的诊断结果。 安装后打开设置 → MCP，选择 supabase:api，点击 Reauthorize 在浏览器中登录并授权。仅安装不会连接账户。 入门 URL 明确启用 read_only=true。选择目标组织；如需限制为单个项目，在单独的本地配置中添加 project_ref。受服务限额和权限约束。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Просматривает схемы базы данных, сведения о проектах, логи и поддерживаемую диагностику через официальный облачный MCP. После установки откройте Настройки → MCP, выберите supabase:api и нажмите Reauthorize для входа и согласия в браузере. Установка сама по себе не подключает аккаунт. В начальном URL включён read_only=true. Выберите нужную организацию; для ограничения одним проектом добавьте project_ref в отдельной локальной конфигурации. Действуют лимиты и права сервиса. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": true,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP returned 401; protected-resource and authorization-server metadata advertise DCR and S256 PKCE. Client registration, account login, consent, authenticated tools and account operations were not tested. Provider policy may still restrict registration.",
+          "zh": "2026-10-10 已验证：未认证 HTTP 返回 401；受保护资源及授权服务器元数据声明 DCR 和 S256 PKCE。未测试客户端注册、账户登录、授权、已认证工具或账户操作。服务商策略仍可能限制注册。",
+          "ru": "Проверено 10.10.2026: HTTP без авторизации вернул 401; метаданные защищённого ресурса и OAuth-сервера объявляют DCR и S256 PKCE. Регистрация клиента, вход, согласие, инструменты после входа и операции аккаунта не тестировались. Политика сервиса может ограничивать регистрацию."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use Supabase to inspect the selected project schema and relevant diagnostics, then explain potential issues without changing data."
+        ],
+        "zh": [
+          "使用 Supabase 查看所选项目的结构和相关诊断，解释潜在问题，不修改数据。"
+        ],
+        "ru": [
+          "Посмотри через Supabase схему выбранного проекта и диагностику, затем объясни возможные проблемы, не меняя данные."
+        ]
+      },
+      "homepage": "https://supabase.com/docs/guides/ai-tools/mcp",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/atlassian",
+      "marketplace": "ompra-starter",
+      "name": "atlassian",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "Atlassian",
+        "zh": "Atlassian",
+        "ru": "Atlassian"
+      },
+      "summary": {
+        "en": "Connect Jira, Confluence and available Rovo tools.",
+        "zh": "连接 Jira、Confluence 和可用的 Rovo 工具。",
+        "ru": "Подключение Jira, Confluence и доступных инструментов Rovo."
+      },
+      "description": {
+        "en": "Find issues and knowledge, read project context and perform authorized updates through Atlassian's official v2 MCP. After installation, open Settings → MCP, select atlassian:api and choose Reauthorize to sign in and consent in your browser. Installation alone does not connect an account. Your Atlassian permissions, organization policies and connected products determine the available tools. This is the current v2 Streamable HTTP endpoint, not legacy SSE. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "通过 Atlassian 官方 v2 MCP 查找任务和知识、阅读项目上下文并执行获授权的更新。 安装后打开设置 → MCP，选择 atlassian:api，点击 Reauthorize 在浏览器中登录并授权。仅安装不会连接账户。 可用工具由 Atlassian 权限、组织策略和已连接产品决定。此连接使用当前 v2 Streamable HTTP 端点，而非旧版 SSE。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Находит задачи и знания, читает контекст проектов и выполняет разрешённые обновления через официальный MCP Atlassian v2. После установки откройте Настройки → MCP, выберите atlassian:api и нажмите Reauthorize для входа и согласия в браузере. Установка сама по себе не подключает аккаунт. Доступные инструменты зависят от прав Atlassian, политик организации и подключённых продуктов. Используется актуальный v2 Streamable HTTP, а не старый SSE. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": true,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP returned 401; protected-resource and authorization-server metadata advertise DCR and S256 PKCE. Client registration, account login, consent, authenticated tools and account operations were not tested. Provider policy may still restrict registration.",
+          "zh": "2026-10-10 已验证：未认证 HTTP 返回 401；受保护资源及授权服务器元数据声明 DCR 和 S256 PKCE。未测试客户端注册、账户登录、授权、已认证工具或账户操作。服务商策略仍可能限制注册。",
+          "ru": "Проверено 10.10.2026: HTTP без авторизации вернул 401; метаданные защищённого ресурса и OAuth-сервера объявляют DCR и S256 PKCE. Регистрация клиента, вход, согласие, инструменты после входа и операции аккаунта не тестировались. Политика сервиса может ограничивать регистрацию."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use Atlassian to find the Jira issues and Confluence documentation related to this feature, then summarize the implementation context."
+        ],
+        "zh": [
+          "使用 Atlassian 查找与此功能相关的 Jira 任务和 Confluence 文档，概括实现上下文。"
+        ],
+        "ru": [
+          "Найди через Atlassian связанные с этой функцией задачи Jira и документацию Confluence и изложи контекст реализации."
+        ]
+      },
+      "homepage": "https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/sentry",
+      "marketplace": "ompra-starter",
+      "name": "sentry",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "Sentry",
+        "zh": "Sentry",
+        "ru": "Sentry"
+      },
+      "summary": {
+        "en": "Investigate application errors and performance issues.",
+        "zh": "调查应用错误和性能问题。",
+        "ru": "Исследование ошибок и проблем производительности приложений."
+      },
+      "description": {
+        "en": "Find issues, inspect error context and use the supported Sentry diagnostics and triage tools. After installation, open Settings → MCP, select sentry:api and choose Reauthorize to sign in and consent in your browser. Installation alone does not connect an account. Select the intended organization and project. Account permissions and granted scopes govern reads and changes; this connection does not enforce read-only access. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "查找问题、检查错误上下文，并使用支持的 Sentry 诊断和问题分流工具。 安装后打开设置 → MCP，选择 sentry:api，点击 Reauthorize 在浏览器中登录并授权。仅安装不会连接账户。 选择目标组织和项目。读取及修改操作取决于账户权限和授权范围；此连接并不强制只读。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Находит проблемы, изучает контекст ошибок и использует поддерживаемые средства диагностики и разбора Sentry. После установки откройте Настройки → MCP, выберите sentry:api и нажмите Reauthorize для входа и согласия в браузере. Установка сама по себе не подключает аккаунт. Выберите нужные организацию и проект. Чтение и изменения ограничены правами аккаунта и scopes; это подключение не принуждает к режиму только чтения. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": true,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP returned 401; protected-resource and authorization-server metadata advertise DCR and S256 PKCE. Client registration, account login, consent, authenticated tools and account operations were not tested. Provider policy may still restrict registration.",
+          "zh": "2026-10-10 已验证：未认证 HTTP 返回 401；受保护资源及授权服务器元数据声明 DCR 和 S256 PKCE。未测试客户端注册、账户登录、授权、已认证工具或账户操作。服务商策略仍可能限制注册。",
+          "ru": "Проверено 10.10.2026: HTTP без авторизации вернул 401; метаданные защищённого ресурса и OAuth-сервера объявляют DCR и S256 PKCE. Регистрация клиента, вход, согласие, инструменты после входа и операции аккаунта не тестировались. Политика сервиса может ограничивать регистрацию."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use Sentry to inspect a recent issue in the selected project and explain the likely cause using its error context."
+        ],
+        "zh": [
+          "使用 Sentry 查看所选项目的一个近期问题，根据错误上下文解释可能原因。"
+        ],
+        "ru": [
+          "Изучи через Sentry недавнюю ошибку выбранного проекта и объясни вероятную причину по её контексту."
+        ]
+      },
+      "homepage": "https://mcp.sentry.dev/",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/plane",
+      "marketplace": "ompra-starter",
+      "name": "plane",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "Plane",
+        "zh": "Plane",
+        "ru": "Plane"
+      },
+      "summary": {
+        "en": "Work with Plane projects, work items and planning.",
+        "zh": "使用 Plane 项目、工作项和规划功能。",
+        "ru": "Работа с проектами, задачами и планированием Plane."
+      },
+      "description": {
+        "en": "Inspect work items and project context, then use supported planning and update tools within your workspace permissions. After installation, open Settings → MCP, select plane:api and choose Reauthorize to sign in and consent in your browser. Installation alone does not connect an account. Choose a Plane Cloud workspace during consent. Plan and role limits apply. This hosted endpoint is not a bridge to a private self-hosted Plane instance and does not enforce read-only access. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "查看工作项和项目上下文，并在工作区权限范围内使用支持的规划和更新工具。 安装后打开设置 → MCP，选择 plane:api，点击 Reauthorize 在浏览器中登录并授权。仅安装不会连接账户。 授权时选择 Plane Cloud 工作区；受套餐和角色限制。此托管端点不能代理到私有自托管 Plane，也不强制只读。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Просматривает задачи и контекст проектов, использует поддерживаемые инструменты планирования и обновления в пределах прав рабочего пространства. После установки откройте Настройки → MCP, выберите plane:api и нажмите Reauthorize для входа и согласия в браузере. Установка сама по себе не подключает аккаунт. При входе выберите рабочее пространство Plane Cloud. Действуют ограничения тарифа и роли. Облачный endpoint не подключает частную self-hosted установку Plane и не принуждает к чтению. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": true,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP returned 401; protected-resource and authorization-server metadata advertise DCR and S256 PKCE. Client registration, account login, consent, authenticated tools and account operations were not tested. Provider policy may still restrict registration.",
+          "zh": "2026-10-10 已验证：未认证 HTTP 返回 401；受保护资源及授权服务器元数据声明 DCR 和 S256 PKCE。未测试客户端注册、账户登录、授权、已认证工具或账户操作。服务商策略仍可能限制注册。",
+          "ru": "Проверено 10.10.2026: HTTP без авторизации вернул 401; метаданные защищённого ресурса и OAuth-сервера объявляют DCR и S256 PKCE. Регистрация клиента, вход, согласие, инструменты после входа и операции аккаунта не тестировались. Политика сервиса может ограничивать регистрацию."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use Plane to read the selected project's work items and summarize the next priorities and current blockers."
+        ],
+        "zh": [
+          "使用 Plane 阅读所选项目的工作项，概括后续优先级和当前阻塞项。"
+        ],
+        "ru": [
+          "Прочитай через Plane задачи выбранного проекта и составь сводку ближайших приоритетов и блокеров."
+        ]
+      },
+      "homepage": "https://developers.plane.so/dev-tools/mcp-server",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/jotform",
+      "marketplace": "ompra-starter",
+      "name": "jotform",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "Jotform",
+        "zh": "Jotform",
+        "ru": "Jotform"
+      },
+      "summary": {
+        "en": "Read and build Jotform forms with your account.",
+        "zh": "使用账户读取和构建 Jotform 表单。",
+        "ru": "Чтение и создание форм Jotform в вашем аккаунте."
+      },
+      "description": {
+        "en": "List forms and use the official hosted tools for supported form and submission operations. After installation, open Settings → MCP, select jotform:api and choose Reauthorize to sign in and consent in your browser. Installation alone does not connect an account. Free or paid Jotform account limits apply; workspace policies may require administrator setup. API-key Bearer access is not supported. Embedded form-preview UI is not part of this connector. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "列出表单，并使用官方托管工具执行支持的表单和提交记录操作。 安装后打开设置 → MCP，选择 jotform:api，点击 Reauthorize 在浏览器中登录并授权。仅安装不会连接账户。 受免费或付费 Jotform 账户限额约束；工作区策略可能需要管理员设置。不支持 API 密钥 Bearer 认证。此连接不包含内嵌表单预览界面。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Показывает формы и предоставляет официальные облачные инструменты для поддерживаемых операций с формами и ответами. После установки откройте Настройки → MCP, выберите jotform:api и нажмите Reauthorize для входа и согласия в браузере. Установка сама по себе не подключает аккаунт. Действуют лимиты бесплатного или платного аккаунта Jotform; политика рабочего пространства может потребовать администратора. Bearer с API-ключом не поддерживается. Встроенный предпросмотр форм не включён. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": true,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP returned 401; protected-resource and authorization-server metadata advertise DCR and S256 PKCE. Client registration, account login, consent, authenticated tools and account operations were not tested. Provider policy may still restrict registration.",
+          "zh": "2026-10-10 已验证：未认证 HTTP 返回 401；受保护资源及授权服务器元数据声明 DCR 和 S256 PKCE。未测试客户端注册、账户登录、授权、已认证工具或账户操作。服务商策略仍可能限制注册。",
+          "ru": "Проверено 10.10.2026: HTTP без авторизации вернул 401; метаданные защищённого ресурса и OAuth-сервера объявляют DCR и S256 PKCE. Регистрация клиента, вход, согласие, инструменты после входа и операции аккаунта не тестировались. Политика сервиса может ограничивать регистрацию."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use Jotform to list my accessible forms and summarize which one matches the described data collection workflow."
+        ],
+        "zh": [
+          "使用 Jotform 列出我可访问的表单，概括哪个表单适合所述数据收集流程。"
+        ],
+        "ru": [
+          "Покажи через Jotform доступные мне формы и определи, какая подходит для описанного процесса сбора данных."
+        ]
+      },
+      "homepage": "https://www.jotform.com/mcp/",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/posthog",
+      "marketplace": "ompra-starter",
+      "name": "posthog",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "PostHog",
+        "zh": "PostHog",
+        "ru": "PostHog"
+      },
+      "summary": {
+        "en": "Explore product analytics, experiments and feature flags.",
+        "zh": "探索产品分析、实验和功能开关。",
+        "ru": "Продуктовая аналитика, эксперименты и флаги функций."
+      },
+      "description": {
+        "en": "Investigate product usage and supported dashboards, experiments, flags and error-tracking context. After installation, open Settings → MCP, select posthog:api and choose Reauthorize to sign in and consent in your browser. Installation alone does not connect an account. Choose the intended organization and project. Account permissions govern available features and actions; a connected server can expose a CLI-style execution tool. This cloud endpoint does not connect a private self-hosted instance. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "调查产品使用情况以及支持的仪表盘、实验、功能开关和错误追踪上下文。 安装后打开设置 → MCP，选择 posthog:api，点击 Reauthorize 在浏览器中登录并授权。仅安装不会连接账户。 选择目标组织和项目。可用功能及操作由账户权限决定；已连接服务器可能暴露 CLI 风格的执行工具。此云端点不连接私有自托管实例。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Исследует использование продукта и доступный контекст дашбордов, экспериментов, флагов и ошибок. После установки откройте Настройки → MCP, выберите posthog:api и нажмите Reauthorize для входа и согласия в браузере. Установка сама по себе не подключает аккаунт. Выберите нужные организацию и проект. Возможности и действия зависят от прав аккаунта; сервер может предоставлять инструмент выполнения в стиле CLI. Этот облачный endpoint не подключает частную self-hosted установку. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": true,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP returned 401; protected-resource and authorization-server metadata advertise DCR and S256 PKCE. Client registration, account login, consent, authenticated tools and account operations were not tested. Provider policy may still restrict registration.",
+          "zh": "2026-10-10 已验证：未认证 HTTP 返回 401；受保护资源及授权服务器元数据声明 DCR 和 S256 PKCE。未测试客户端注册、账户登录、授权、已认证工具或账户操作。服务商策略仍可能限制注册。",
+          "ru": "Проверено 10.10.2026: HTTP без авторизации вернул 401; метаданные защищённого ресурса и OAuth-сервера объявляют DCR и S256 PKCE. Регистрация клиента, вход, согласие, инструменты после входа и операции аккаунта не тестировались. Политика сервиса может ограничивать регистрацию."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use PostHog to inspect the selected project's existing analytics and summarize recent usage changes with supporting queries."
+        ],
+        "zh": [
+          "使用 PostHog 查看所选项目的现有分析数据，用查询依据概括近期使用情况变化。"
+        ],
+        "ru": [
+          "Посмотри через PostHog аналитику выбранного проекта и изложи недавние изменения использования с подтверждающими запросами."
+        ]
+      },
+      "homepage": "https://posthog.com/docs/model-context-protocol",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/railway",
+      "marketplace": "ompra-starter",
+      "name": "railway",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "Railway",
+        "zh": "Railway",
+        "ru": "Railway"
+      },
+      "summary": {
+        "en": "Inspect and manage Railway project deployments.",
+        "zh": "检查和管理 Railway 项目部署。",
+        "ru": "Просмотр и управление развёртываниями проектов Railway."
+      },
+      "description": {
+        "en": "Inspect project environments and deployment context, and use permitted Railway project tools. After installation, open Settings → MCP, select railway:api and choose Reauthorize to sign in and consent in your browser. Installation alone does not connect an account. Workspace permissions, usage limits and billing apply to provisioned resources. This connects to the official hosted MCP and does not install the deprecated railway-mcp npm package. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "检查项目环境和部署上下文，并使用获允许的 Railway 项目工具。 安装后打开设置 → MCP，选择 railway:api，点击 Reauthorize 在浏览器中登录并授权。仅安装不会连接账户。 所创建资源受工作区权限、使用限额及计费约束。此连接使用官方托管 MCP，不安装已弃用的 railway-mcp npm 包。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Просматривает окружения и контекст развёртывания проектов, использует разрешённые инструменты Railway. После установки откройте Настройки → MCP, выберите railway:api и нажмите Reauthorize для входа и согласия в браузере. Установка сама по себе не подключает аккаунт. Для созданных ресурсов действуют права рабочего пространства, лимиты и оплата. Подключается официальный облачный MCP; устаревший npm-пакет railway-mcp не устанавливается. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": true,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP returned 401; protected-resource and authorization-server metadata advertise DCR and S256 PKCE. Client registration, account login, consent, authenticated tools and account operations were not tested. Provider policy may still restrict registration.",
+          "zh": "2026-10-10 已验证：未认证 HTTP 返回 401；受保护资源及授权服务器元数据声明 DCR 和 S256 PKCE。未测试客户端注册、账户登录、授权、已认证工具或账户操作。服务商策略仍可能限制注册。",
+          "ru": "Проверено 10.10.2026: HTTP без авторизации вернул 401; метаданные защищённого ресурса и OAuth-сервера объявляют DCR и S256 PKCE. Регистрация клиента, вход, согласие, инструменты после входа и операции аккаунта не тестировались. Политика сервиса может ограничивать регистрацию."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use Railway to inspect the selected project's latest deployment status and explain any failure without redeploying it."
+        ],
+        "zh": [
+          "使用 Railway 查看所选项目的最新部署状态，解释失败原因，不重新部署。"
+        ],
+        "ru": [
+          "Проверь через Railway состояние последнего развёртывания выбранного проекта и объясни сбой, не запуская новое развёртывание."
+        ]
+      },
+      "homepage": "https://docs.railway.com/ai/mcp-server",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/stripe",
+      "marketplace": "ompra-starter",
+      "name": "stripe",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "Stripe",
+        "zh": "Stripe",
+        "ru": "Stripe"
+      },
+      "summary": {
+        "en": "Inspect and work with permitted Stripe resources.",
+        "zh": "检查并使用获授权的 Stripe 资源。",
+        "ru": "Просмотр и работа с разрешёнными ресурсами Stripe."
+      },
+      "description": {
+        "en": "Inspect payment and billing context and use Stripe's supported tools within your granted account access. After installation, open Settings → MCP, select stripe:api and choose Reauthorize to sign in and consent in your browser. Installation alone does not connect an account. Select the intended Stripe account and mode. The endpoint does not enforce read-only access. Account permissions and Stripe terms govern all operations; the starter uses OAuth rather than a bundled API key. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "检查支付和账单上下文，并在获授权账户访问范围内使用 Stripe 支持的工具。 安装后打开设置 → MCP，选择 stripe:api，点击 Reauthorize 在浏览器中登录并授权。仅安装不会连接账户。 选择目标 Stripe 账户和模式。此端点不强制只读。所有操作受账户权限和 Stripe 条款约束；入门连接使用 OAuth，不捆绑 API 密钥。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Просматривает контекст платежей и биллинга, использует поддерживаемые инструменты Stripe в пределах предоставленного доступа. После установки откройте Настройки → MCP, выберите stripe:api и нажмите Reauthorize для входа и согласия в браузере. Установка сама по себе не подключает аккаунт. Выберите нужные аккаунт и режим Stripe. Endpoint не принуждает к чтению. Все операции ограничены правами и условиями Stripe; начальное подключение использует OAuth без встроенного API-ключа. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": true,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP returned 401; protected-resource and authorization-server metadata advertise DCR and S256 PKCE. Client registration, account login, consent, authenticated tools and account operations were not tested. Provider policy may still restrict registration.",
+          "zh": "2026-10-10 已验证：未认证 HTTP 返回 401；受保护资源及授权服务器元数据声明 DCR 和 S256 PKCE。未测试客户端注册、账户登录、授权、已认证工具或账户操作。服务商策略仍可能限制注册。",
+          "ru": "Проверено 10.10.2026: HTTP без авторизации вернул 401; метаданные защищённого ресурса и OAuth-сервера объявляют DCR и S256 PKCE. Регистрация клиента, вход, согласие, инструменты после входа и операции аккаунта не тестировались. Политика сервиса может ограничивать регистрацию."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use Stripe to inspect the selected account's existing billing resources and summarize their current state without creating or changing anything."
+        ],
+        "zh": [
+          "使用 Stripe 查看所选账户现有的账单资源，概括当前状态，不创建或修改任何内容。"
+        ],
+        "ru": [
+          "Посмотри через Stripe существующие ресурсы биллинга выбранного аккаунта и изложи их состояние, ничего не создавая и не меняя."
+        ]
+      },
+      "homepage": "https://docs.stripe.com/mcp",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/exa",
+      "marketplace": "ompra-starter",
+      "name": "exa",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "Exa",
+        "zh": "Exa",
+        "ru": "Exa"
+      },
+      "summary": {
+        "en": "Search the web and fetch clean page content.",
+        "zh": "搜索网页并提取干净的页面内容。",
+        "ru": "Поиск в интернете и извлечение читаемых страниц."
+      },
+      "description": {
+        "en": "Search the web and read known URLs using explicitly selected search and fetch tools. Install, open or reload an agent session, then check exa:api in Settings → MCP. No account sign-in is needed for this starter mode. The keyless starter is rate limited. Its explicit tools list includes web_fetch_exa so OMP keeps this connection alongside native search. Account-only research-agent tools are not included. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "使用明确选择的搜索和读取工具搜索网页并阅读已知 URL。 安装后打开或重新加载代理会话，在设置 → MCP 中检查 exa:api。此入门模式无需账户登录。 免密钥入门模式有速率限制。显式工具列表包含 web_fetch_exa，因此 OMP 可将此连接与原生搜索同时保留。不包含需账户的研究代理工具。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Ищет в интернете и читает известные URL через явно выбранные инструменты поиска и извлечения. Установите пакет, откройте или перезагрузите сессию агента и проверьте exa:api в Настройки → MCP. Для начального режима вход в аккаунт не нужен. Начальный режим без ключа ограничен лимитами. Явный список включает web_fetch_exa, поэтому OMP сохраняет это подключение рядом со встроенным поиском. Инструменты исследовательского агента с аккаунтом не включены. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": false,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP initialize and tools/list returned 2 tools with MCP 2025-11-25. No tool was invoked. Package install is checked separately; future availability, output quality and security are not certified.",
+          "zh": "2026-10-10 已验证：未认证 HTTP initialize 和 tools/list 返回 2 个工具，协议为 MCP 2025-11-25。未调用工具。包安装另行检查；不保证未来可用性，也不认证输出质量或安全性。",
+          "ru": "Проверено 10.10.2026: HTTP initialize и tools/list без авторизации вернули 2 инструмента с MCP 2025-11-25. Инструменты не вызывались. Установка проверяется отдельно; будущая доступность, качество ответов и безопасность не сертифицируются."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use Exa to search public sources for this technical question, fetch the most relevant pages and answer with links."
+        ],
+        "zh": [
+          "使用 Exa 为此技术问题搜索公开来源，读取最相关页面，并附链接作答。"
+        ],
+        "ru": [
+          "Найди через Exa открытые источники по этому техническому вопросу, прочитай подходящие страницы и ответь со ссылками."
+        ]
+      },
+      "homepage": "https://exa.ai/docs/get-started/exa-mcp",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/github",
+      "marketplace": "ompra-starter",
+      "name": "github",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "GitHub",
+        "zh": "GitHub",
+        "ru": "GitHub"
+      },
+      "summary": {
+        "en": "Connect repositories, issues and pull requests using your token.",
+        "zh": "使用个人令牌连接仓库、任务和拉取请求。",
+        "ru": "Подключение репозиториев, задач и pull requests через ваш токен."
+      },
+      "description": {
+        "en": "Inspect repositories, issues, pull requests and supported GitHub resources with a user-supplied personal access token. Setup required: in Settings → MCP → Add server, create a User-scoped HTTP entry named github:api with this package's endpoint. Add an Authorization header containing Bearer followed by your own GitHub personal access token. The local entry overrides the connector; uninstalling the package does not remove that entry or token. Remove the local entry as well to disconnect completely. The hosted server does not advertise dynamic OAuth client registration. Ompra does not reuse another client's credentials. Token permissions and organization policies determine available actions. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "使用用户提供的个人访问令牌检查仓库、任务、拉取请求和支持的 GitHub 资源。 需要设置：在设置 → MCP → Add server 中创建名为 github:api、范围为 User 的 HTTP 项，使用此包的端点。在 Authorization 请求头中填写 Bearer 加您自己的令牌。此本地项会覆盖连接定义；卸载包不会删除本地项或令牌。完全断开时也需删除本地项。 托管服务器不声明 OAuth 动态客户端注册。Ompra 不复用其他客户端的凭据。可用操作由令牌权限和组织策略决定。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Просматривает репозитории, задачи, pull requests и поддерживаемые ресурсы GitHub с вашим personal access token. Требуется настройка: в Настройки → MCP → Add server создайте HTTP-запись области User с именем github:api и endpoint этого пакета. В заголовке Authorization введите Bearer и собственный GitHub personal access token. Локальная запись переопределяет коннектор; удаление пакета не удаляет эту запись или токен. Для полного отключения удалите и локальную запись. Облачный сервер не объявляет динамическую регистрацию OAuth-клиента. Ompra не использует реквизиты других приложений. Доступные действия определяются правами токена и политиками организации. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": true,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP returned 401; protected-resource and authorization-server metadata were retrieved. No DCR endpoint was advertised. Provider documents the user-token setup; authenticated discovery and account operations were not tested.",
+          "zh": "2026-10-10 已验证：未认证 HTTP 返回 401；已读取受保护资源及授权服务器元数据，未声明 DCR 端点。服务商文档说明用户令牌设置；未测试已认证发现或账户操作。",
+          "ru": "Проверено 10.10.2026: HTTP без авторизации вернул 401; получены метаданные защищённого ресурса и OAuth-сервера. DCR endpoint не объявлен. Настройка токена описана сервисом; обнаружение после входа и операции аккаунта не тестировались."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use GitHub to inspect this repository's open pull requests and issues, then summarize the most relevant items without changing them."
+        ],
+        "zh": [
+          "使用 GitHub 查看此仓库开放的拉取请求和任务，概括最相关事项，不修改它们。"
+        ],
+        "ru": [
+          "Посмотри через GitHub открытые pull requests и задачи этого репозитория и изложи самое важное, ничего не меняя."
+        ]
+      },
+      "homepage": "https://github.com/github/github-mcp-server",
+      "repository": "https://github.com/vallgrice/ompra-catalog"
+    },
+    {
+      "id": "ompra-starter/render",
+      "marketplace": "ompra-starter",
+      "name": "render",
+      "version": "1.0.0",
+      "kind": "mcp",
+      "title": {
+        "en": "Render",
+        "zh": "Render",
+        "ru": "Render"
+      },
+      "summary": {
+        "en": "Inspect services, deployment logs and supported Render resources.",
+        "zh": "检查服务、部署日志及支持的 Render 资源。",
+        "ru": "Просмотр сервисов, логов развёртываний и ресурсов Render."
+      },
+      "description": {
+        "en": "Inspect Render service and deployment context and use supported resource tools with your own API key. Setup required: in Settings → MCP → Add server, create a User-scoped HTTP entry named render:api with this package's endpoint. Add an Authorization header containing Bearer followed by your own Render API key. The local entry overrides the connector; uninstalling the package does not remove that entry or token. Remove the local entry as well to disconnect completely. The hosted service does not advertise dynamic OAuth client registration. Select the intended workspace. Account permissions, resource billing and database network restrictions apply. MIT licenses only this independent Ompra connector definition. Provider services, accounts, quotas and terms remain separate. Native HTTP needs no extra Node.js or Python runtime; Git is used to install the package.",
+        "zh": "使用自己的 API 密钥查看 Render 服务和部署上下文，并使用支持的资源工具。 需要设置：在设置 → MCP → Add server 中创建名为 render:api、范围为 User 的 HTTP 项，使用此包的端点。在 Authorization 请求头中填写 Bearer 加您自己的令牌。此本地项会覆盖连接定义；卸载包不会删除本地项或令牌。完全断开时也需删除本地项。 托管服务不声明 OAuth 动态客户端注册。请选择目标工作区。受账户权限、资源计费和数据库网络限制约束。 MIT 仅适用于此独立 Ompra 连接定义；服务商的服务、账户、配额和条款另行适用。原生 HTTP 无需额外 Node.js 或 Python 运行时；安装包需要 Git。",
+        "ru": "Просматривает сервисы и контекст развёртываний Render, использует поддерживаемые инструменты ресурсов с вашим API-ключом. Требуется настройка: в Настройки → MCP → Add server создайте HTTP-запись области User с именем render:api и endpoint этого пакета. В заголовке Authorization введите Bearer и собственный Render API key. Локальная запись переопределяет коннектор; удаление пакета не удаляет эту запись или токен. Для полного отключения удалите и локальную запись. Облачный сервис не объявляет динамическую регистрацию OAuth-клиента. Выберите нужное рабочее пространство. Действуют права аккаунта, оплата ресурсов и сетевые ограничения базы данных. MIT распространяется только на независимое определение подключения Ompra. Условия, аккаунты и квоты сервиса действуют отдельно. Для HTTP не нужны дополнительные Node.js или Python; Git используется при установке пакета."
+      },
+      "category": "integration",
+      "icon": "plug",
+      "author": "Ompra contributors",
+      "license": "MIT",
+      "requirements": {
+        "runtimes": [
+          "git"
+        ],
+        "account": true,
+        "network": true
+      },
+      "evidence": {
+        "status": "documented",
+        "detail": {
+          "en": "Verified 2026-10-10: unauthenticated HTTP returned 401; protected-resource and authorization-server metadata were retrieved. No DCR endpoint was advertised. Provider documents the user-token setup; authenticated discovery and account operations were not tested.",
+          "zh": "2026-10-10 已验证：未认证 HTTP 返回 401；已读取受保护资源及授权服务器元数据，未声明 DCR 端点。服务商文档说明用户令牌设置；未测试已认证发现或账户操作。",
+          "ru": "Проверено 10.10.2026: HTTP без авторизации вернул 401; получены метаданные защищённого ресурса и OAuth-сервера. DCR endpoint не объявлен. Настройка токена описана сервисом; обнаружение после входа и операции аккаунта не тестировались."
+        }
+      },
+      "prompts": {
+        "en": [
+          "Use Render to inspect the selected service's latest deployment logs and summarize the cause of a failure without triggering a deployment."
+        ],
+        "zh": [
+          "使用 Render 查看所选服务的最新部署日志，概括失败原因，不触发部署。"
+        ],
+        "ru": [
+          "Прочитай через Render логи последнего развёртывания выбранного сервиса и объясни причину сбоя, не запуская развёртывание."
+        ]
+      },
+      "homepage": "https://render.com/docs/mcp-server",
       "repository": "https://github.com/vallgrice/ompra-catalog"
     }
   ]
