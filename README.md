@@ -236,6 +236,8 @@ URLs.
 
 ## 🔄 Publishing updates
 
+This repository also hosts the optional [reviewed OMP engine compatibility record](docs/engine-channel.md). It lets supported Ompra apps discover approved engine updates independently of app releases. Engine executables remain on official OMP GitHub Releases; this repository contains metadata only.
+
 ### Metadata changes
 
 For description-only changes, edit `catalog.json`, increment the catalog

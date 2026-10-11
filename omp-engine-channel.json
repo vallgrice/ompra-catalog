@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "source": "official",
+  "feedUrl": null,
+  "release": {
+    "id": "18.9.1-official-win32-x64",
+    "version": "18.9.1",
+    "revision": 2,
+    "platform": "win32-x64",
+    "abi": "omp-official-rpc-1",
+    "minAppVersion": "0.1.0",
+    "sha256": "55a6b01fab57ea0d1801039395783cc2109dfe75c4808c81a3661f97a76d9d6d",
+    "bytes": 234470400,
+    "url": "https://github.com/can1357/oh-my-pi/releases/download/v18.9.1/omp-windows-x64.exe"
+  }
+}
